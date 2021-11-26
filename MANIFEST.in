@@ -1,1 +1,1 @@
-
+include README.md LICENSE docs/index.md docs/install.md docs/usage.md docs/api.md docs/changes.md
