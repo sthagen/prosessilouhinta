@@ -1,1 +1,19 @@
+[tool.pyflow]
+name = "prosessilouhinta"
+py_version = "3.8"
+version = "2021.11.27"
+authors = ["Stefan Hagen <stefan@hagen.link>"]
 
+[tool.pyflow.scripts]
+
+[tool.pyflow.dependencies]
+
+[tool.pyflow.dev-dependencies]
+black = "^21.9b0"
+flake8 = "^4.0.1"
+flake8-quotes = "^3.3.0"
+isort = "^5.9.3"
+mypy = "^0.910"
+pycodestyle = "^2.8.0"
+pyflakes = "^2.4.0"
+pytest = "^6.2.5"
