@@ -72,6 +72,22 @@ def user_activities(events: EventLog) -> UserActivity:
     return UA
 
 
+def work_distribution(events: EventLog) -> Flow:
+    """Calculate the count of activities UAC performed by each user from the eventlog."""
+    UAC: Flow = {}
+    for caseid in events:
+        for i in range(0, len(events[caseid])):
+            ai = events[caseid][i][0]
+            ui = events[caseid][i][1]
+            if ui not in UAC:
+                UAC[ui] = {}
+            if ai not in UAC[ui]:
+                UAC[ui][ai] = 0
+            UAC[ui][ai] += 1
+
+    return UAC
+
+
 def parse_eventlog_csv(path: pathlib.Path) -> Union[EventLog, Any]:
     """Parse the eventlog into a map, matching the translation headers to columns."""
     with open(path, encoding=ENCODING) as handle:
