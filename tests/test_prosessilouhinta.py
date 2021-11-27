@@ -27,3 +27,13 @@ def test_parse_single_data_line_eventlog_csv():
 def test_control_flow_single_entry():
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
     assert pm.control_flow(eventlog) == {}
+
+
+def test_control_flow_single_case_two_tasks():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    assert pm.control_flow(eventlog) == {'t1': {'t2': 1}}
