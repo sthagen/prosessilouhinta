@@ -44,7 +44,7 @@ def control_flow(events: EventLog) -> Flow:
     return F
 
 
-def acitivty_counts(events: EventLog) -> Activity:
+def activity_counts(events: EventLog) -> Activity:
     """Calculate the activity counts A from eventlog."""
     A: Activity = {}
     for caseid in events:
