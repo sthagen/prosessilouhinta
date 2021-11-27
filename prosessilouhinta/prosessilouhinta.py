@@ -35,7 +35,7 @@ def parse_eventlog_csv(path: pathlib.Path) -> Union[EventLog, Any]:
             if not line or line.startswith(CSV_HEAD_TOKEN):
                 continue
             try:
-                [caseid, task, user, ts_text, _] = line.split(CSV_SEP)
+                caseid, task, user, ts_text = line.split(CSV_SEP)[:4]
                 timestamp = dti.datetime.strptime(ts_text, '%Y-%m-%d %H:%M:%S')
             except ValueError:  # Both statements may raise that wun
                 print(line)
