@@ -24,6 +24,23 @@ DISPATCH = {
 }
 
 EventLog = dict[str, List[Tuple[str, str, dti.datetime]]]
+Flow = dict[str, dict[str, int]]
+
+
+def control_flow(events: EventLog) -> Flow:
+    """Calculate the control flow from eventlog."""
+    F: Flow = {}
+    for caseid in events:
+        for i in range(0, len(events[caseid]) - 1):
+            ai = events[caseid][i][0]
+            aj = events[caseid][i + 1][0]
+            if ai not in F:
+                F[ai] = {}
+            if aj not in F[ai]:
+                F[ai][aj] = 0
+            F[ai][aj] += 1
+
+    return F
 
 
 def parse_eventlog_csv(path: pathlib.Path) -> Union[EventLog, Any]:
