@@ -88,6 +88,28 @@ def work_distribution(events: EventLog) -> Flow:
     return UAC
 
 
+def working_together(events: EventLog) -> Flow:
+    """Calculate the working together matrix W from eventlog."""
+    W: Flow = {}
+    for caseid in events:
+        S = set()
+        for i in range(0, len(events[caseid])):
+            ui = events[caseid][i][1]
+            S.add(ui)
+        L = sorted(list(S))
+        for i in range(0, len(L) - 1):
+            for j in range(i + 1, len(L)):
+                ui = L[i]
+                uj = L[j]
+                if ui not in W:
+                    W[ui] = {}
+                if uj not in W[ui]:
+                    W[ui][uj] = 0
+                W[ui][uj] += 1
+
+    return W
+
+
 def parse_eventlog_csv(path: pathlib.Path) -> Union[EventLog, Any]:
     """Parse the eventlog into a map, matching the translation headers to columns."""
     with open(path, encoding=ENCODING) as handle:
