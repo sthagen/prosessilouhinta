@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 isort = isort prosessilouhinta tests
-black = black -S -l 120 --target-version py39 foran tests
+black = black -S -l 120 --target-version py39 prosessilouhinta tests
 
 .PHONY: install
 install:
