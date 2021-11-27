@@ -67,3 +67,13 @@ def test_working_together_single_case_two_users():
         ]
     }
     assert pm.working_together(eventlog) == {'u1': {'u2': 1}}
+
+
+def test_time_differences_single_case_two_users():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    assert pm.time_differences(eventlog) == {'t1': {'t2': [dti.timedelta(seconds=1)]}}
