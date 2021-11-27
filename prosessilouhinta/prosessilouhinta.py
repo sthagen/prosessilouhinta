@@ -24,9 +24,24 @@ DISPATCH = {
 }
 
 EventLog = dict[str, List[Tuple[str, str, dti.datetime]]]
-Flow = dict[str, dict[str, int]]
 Activity = dict[str, int]
+Flow = dict[str, dict[str, int]]
+TimeDifference = dict[str, dict[str, List[dti.timedelta]]]
+AverageTimeDifference = dict[str, dict[str, dti.timedelta]]
 UserActivity = dict[str, set[str]]
+
+
+def activity_counts(events: EventLog) -> Activity:
+    """Calculate the activity counts A from eventlog."""
+    A: Activity = {}
+    for caseid in events:
+        for i in range(0, len(events[caseid])):
+            ai = events[caseid][i][0]
+            if ai not in A:
+                A[ai] = 0
+            A[ai] += 1
+
+    return A
 
 
 def control_flow(events: EventLog) -> Flow:
@@ -45,17 +60,35 @@ def control_flow(events: EventLog) -> Flow:
     return F
 
 
-def activity_counts(events: EventLog) -> Activity:
-    """Calculate the activity counts A from eventlog."""
-    A: Activity = {}
+def time_differences(events: EventLog) -> TimeDifference:
+    """Calculate average time differences D from eventlog."""
+    D: TimeDifference = {}
     for caseid in events:
-        for i in range(0, len(events[caseid])):
-            ai = events[caseid][i][0]
-            if ai not in A:
-                A[ai] = 0
-            A[ai] += 1
+        for i in range(0, len(events[caseid]) - 1):
+            (ai, _, ti) = events[caseid][i]
+            (aj, _, tj) = events[caseid][i + 1]
+            if ai not in D:
+                D[ai] = {}
+            if aj not in D[ai]:
+                D[ai][aj] = []
+            D[ai][aj].append(tj - ti)
 
-    return A
+    return D
+
+
+def average_time_differences(D: TimeDifference) -> AverageTimeDifference:
+    """Average the time diferences from D per case transitions."""
+    AD: AverageTimeDifference = {}
+    for ai in sorted(D.keys()):
+        AD[ai] = {}
+        for aj in sorted(D[ai].keys()):
+            sum_td = sum(D[ai][aj], dti.timedelta(0))
+            count_td = len(D[ai][aj])
+            avg_td = sum_td / count_td
+            avg_td -= dti.timedelta(microseconds=avg_td.microseconds)
+            AD[ai][aj] = avg_td
+
+    return AD
 
 
 def user_activities(events: EventLog) -> UserActivity:
