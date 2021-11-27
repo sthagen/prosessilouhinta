@@ -37,3 +37,8 @@ def test_control_flow_single_case_two_tasks():
         ]
     }
     assert pm.control_flow(eventlog) == {'t1': {'t2': 1}}
+
+
+def test_activity_counts_single_entry():
+    eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
+    assert pm.activity_counts(eventlog) == {'t1': 1}
