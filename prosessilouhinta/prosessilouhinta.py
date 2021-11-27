@@ -25,6 +25,7 @@ DISPATCH = {
 
 EventLog = dict[str, List[Tuple[str, str, dti.datetime]]]
 Flow = dict[str, dict[str, int]]
+Activity = dict[str, int]
 
 
 def control_flow(events: EventLog) -> Flow:
@@ -41,6 +42,19 @@ def control_flow(events: EventLog) -> Flow:
             F[ai][aj] += 1
 
     return F
+
+
+def acitivty_counts(events: EventLog) -> Activity:
+    """Calculate the activity counts A from eventlog."""
+    A: Activity = {}
+    for caseid in events:
+        for i in range(0, len(events[caseid])):
+            ai = events[caseid][i][0]
+            if ai not in A:
+                A[ai] = 0
+            A[ai] += 1
+
+    return A
 
 
 def parse_eventlog_csv(path: pathlib.Path) -> Union[EventLog, Any]:
