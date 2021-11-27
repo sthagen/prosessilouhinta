@@ -55,7 +55,7 @@ def verify_request(argv: Optional[List[str]]) -> Tuple[int, str, List[str]]:
 
     command, inp, out, translation_table_path, dryrun = argv
 
-    if command not in ('translate'):
+    if command not in ('extract'):
         return 2, 'received unknown command', ['']
 
     if inp:
