@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=missing-docstring,unused-import,reimported
+import datetime as dti
 import pathlib
 
 import prosessilouhinta.prosessilouhinta as pm
@@ -15,3 +16,9 @@ def test_parse_empty_eventlog_csv():
 def test_parse_header_only_eventlog_csv():
     empty = FIXTURES_PATH / 'basic' / 'header-only.csv'
     assert pm.parse_eventlog_csv(empty) == {}
+
+
+def test_parse_single_data_line_eventlog_csv():
+    empty = FIXTURES_PATH / 'basic' / 'single-data-line.csv'
+    eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
+    assert pm.parse_eventlog_csv(empty) == eventlog
