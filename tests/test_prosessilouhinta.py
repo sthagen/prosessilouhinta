@@ -22,3 +22,8 @@ def test_parse_single_data_line_eventlog_csv():
     empty = FIXTURES_PATH / 'basic' / 'single-data-line.csv'
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
     assert pm.parse_eventlog_csv(empty) == eventlog
+
+
+def test_control_flow_single_entry():
+    eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
+    assert pm.control_flow(eventlog) == {}
