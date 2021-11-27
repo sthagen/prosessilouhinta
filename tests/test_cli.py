@@ -18,7 +18,7 @@ def test_app_version():
 
 def test_app_extract():
     result = runner.invoke(app, ['extract'])
-    assert result.exit_code == 2
+    assert result.exit_code == 1
 
 
 def test_cli_main(capsys):
