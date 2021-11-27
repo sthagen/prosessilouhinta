@@ -57,3 +57,13 @@ def test_work_distribution_single_entry():
 def test_working_together_single_entry():
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
     assert pm.working_together(eventlog) == {}
+
+
+def test_working_together_single_case_two_users():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u2', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    assert pm.working_together(eventlog) == {'u1': {'u2': 1}}
