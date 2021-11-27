@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=expression-not-assigned,line-too-long
 """Process mining (Finnish prosessilouhinta) from eventlogs. API."""
+import datetime as dti
 import json
 import os
 import pathlib
@@ -13,12 +14,37 @@ DEBUG = os.getenv(DEBUG_VAR)
 
 ENCODING = 'utf-8'
 ENCODING_ERRORS_POLICY = 'ignore'
+CSV_HEAD_TOKEN = '#'
+CSV_SEP = ','
 
 STDIN, STDOUT = 'STDIN', 'STDOUT'
 DISPATCH = {
     STDIN: sys.stdin,
     STDOUT: sys.stdout,
 }
+
+EventLog = dict[str, List[Tuple[str, str, dti.datetime]]]
+
+
+def parse_eventlog_csv(path: pathlib.Path) -> Union[EventLog, Any]:
+    """Parse the eventlog into a map, matching the translation headers to columns."""
+    with open(path, encoding=ENCODING) as handle:
+        evemtlog: EventLog = {}
+        for line in handle:
+            line = line.strip()
+            if not line or line.startswith(CSV_HEAD_TOKEN):
+                continue
+            try:
+                [caseid, task, user, ts_text, _] = line.split(CSV_SEP)
+                timestamp = dti.datetime.strptime(ts_text, '%Y-%m-%d %H:%M:%S')
+            except ValueError:  # Both statements may raise that wun
+                print(line)
+                raise
+            if caseid not in evemtlog:
+                evemtlog[caseid] = []
+            event = (task, user, timestamp)
+            evemtlog[caseid].append(event)
+    return evemtlog
 
 
 def load_translation_table(path: pathlib.Path) -> Union[dict[str, str], Any]:
