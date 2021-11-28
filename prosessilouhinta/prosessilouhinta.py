@@ -145,22 +145,21 @@ def working_together(events: EventLog) -> Flow:
 
 def parse_eventlog_csv(path: pathlib.Path) -> Union[EventLog, Any]:
     """Parse the eventlog into a map, matching the translation headers to columns."""
-    with open(path, encoding=ENCODING) as handle:
-        evemtlog: EventLog = {}
-        for line in handle:
-            line = line.strip()
-            if not line or line.startswith(CSV_HEAD_TOKEN):
-                continue
-            try:
-                caseid, task, user, ts_text = line.split(CSV_SEP)[:4]
-                timestamp = dti.datetime.strptime(ts_text, '%Y-%m-%d %H:%M:%S')
-            except ValueError:  # Both statements may raise that wun
-                print(line)
-                raise
-            if caseid not in evemtlog:
-                evemtlog[caseid] = []
-            event = (task, user, timestamp)
-            evemtlog[caseid].append(event)
+    evemtlog: EventLog = {}
+    for line in reader(path):
+        line = line.strip()
+        if not line or line.startswith(CSV_HEAD_TOKEN):
+            continue
+        try:
+            caseid, task, user, ts_text = line.split(CSV_SEP)[:4]
+            timestamp = dti.datetime.strptime(ts_text, '%Y-%m-%d %H:%M:%S')
+        except ValueError:  # Both statements may raise that wun
+            print(line)
+            raise
+        if caseid not in evemtlog:
+            evemtlog[caseid] = []
+        event = (task, user, timestamp)
+        evemtlog[caseid].append(event)
     return evemtlog
 
 
@@ -184,9 +183,9 @@ def load_translation_table(path: pathlib.Path) -> Union[dict[str, str], Any]:
     return table
 
 
-def reader(path: str) -> Iterator[str]:
+def reader(path: pathlib.Path) -> Iterator[str]:
     """Context wrapper / generator to read the lines."""
-    with open(pathlib.Path(path), 'rt', encoding=ENCODING) as handle:
+    with open(path, 'rt', encoding=ENCODING) as handle:
         for line in handle:
             yield line
 
@@ -225,7 +224,7 @@ def main(argv: Union[List[str], None] = None) -> int:
     if not table:
         return 1
 
-    source = sys.stdin if not inp else reader(inp)
+    source = sys.stdin if not inp else reader(pathlib.Path(inp))
     if not source:
         return 2
 
