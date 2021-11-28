@@ -33,6 +33,13 @@ def test_parse_single_too_short_data_line_eventlog_csv():
         _ = pm.parse_eventlog_csv(too_short)
 
 
+def test_parse_single_ts_format_wrong_data_line_eventlog_csv():
+    having_other_ts_format = BASIC_FIXTURES_PATH / 'single-ts-format-wrong-data-line.csv'
+    message = r"time data '20211127T123456.654321Z' does not match format '%Y-%m-%d %H:%M:%S'"
+    with pytest.raises(ValueError, match=message):
+        _ = pm.parse_eventlog_csv(having_other_ts_format)
+
+
 def test_control_flow_single_entry():
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
     assert pm.control_flow(eventlog) == {}
