@@ -21,9 +21,33 @@ def test_parse_header_only_eventlog_csv():
 
 
 def test_parse_single_data_line_eventlog_csv():
-    empty = BASIC_FIXTURES_PATH / 'single-data-line.csv'
+    single = BASIC_FIXTURES_PATH / 'single-data-line.csv'
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
-    assert pm.parse_eventlog_csv(empty) == eventlog
+    assert pm.parse_eventlog_csv(single) == eventlog
+
+
+def test_parse_two_cases_two_data_lines_eventlog_csv():
+    two_cases = BASIC_FIXTURES_PATH / 'two-cases-two-data-lines.csv'
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+        ],
+        'c2': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+        ],
+    }
+    assert pm.parse_eventlog_csv(two_cases) == eventlog
+
+
+def test_parse_wun_case_two_data_lines_eventlog_csv():
+    two_cases = BASIC_FIXTURES_PATH / 'wun-case-two-data-lines.csv'
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+        ],
+    }
+    assert pm.parse_eventlog_csv(two_cases) == eventlog
 
 
 def test_parse_single_too_short_data_line_eventlog_csv():
