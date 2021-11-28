@@ -3,6 +3,8 @@
 import datetime as dti
 import pathlib
 
+import pytest
+
 import prosessilouhinta.prosessilouhinta as pm
 
 BASIC_FIXTURES_PATH = pathlib.Path('tests', 'fixtures', 'basic')
@@ -22,6 +24,13 @@ def test_parse_single_data_line_eventlog_csv():
     empty = BASIC_FIXTURES_PATH / 'single-data-line.csv'
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
     assert pm.parse_eventlog_csv(empty) == eventlog
+
+
+def test_parse_single_too_short_data_line_eventlog_csv():
+    too_short = BASIC_FIXTURES_PATH / 'single-too-short-data-line.csv'
+    message = r'not enough values to unpack \(expected 4, got 3\)'
+    with pytest.raises(ValueError, match=message):
+        _ = pm.parse_eventlog_csv(too_short)
 
 
 def test_control_flow_single_entry():
