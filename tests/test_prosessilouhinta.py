@@ -55,6 +55,18 @@ def test_control_flow_single_case_two_tasks():
     assert pm.control_flow(eventlog) == {'t1': {'t2': 1}}
 
 
+def test_control_flow_single_case_two_distinct_tasks():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u2', dti.datetime.strptime('2021-11-27 12:34:58', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u3', dti.datetime.strptime('2021-11-27 12:34:59', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    assert pm.control_flow(eventlog) == {'t1': {'t2': 1}, 't2': {'t2': 2}}
+
+
 def test_activity_counts_single_entry():
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
     assert pm.activity_counts(eventlog) == {'t1': 1}
