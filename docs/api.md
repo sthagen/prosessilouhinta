@@ -29,7 +29,7 @@ activity_counts(events: EventLog) -> dict[str, int]
     Calculate the activity counts A from eventlog.
 ```
 
-### Average Time Diferences
+### Average Time Differences
 
 Uses `datetime.timedelta`s as type for the difference values
 
@@ -38,7 +38,7 @@ average_time_differences(D: TimeDifference) -> AverageTimeDifference
     Average the time differences from D per case transitions.
 ```
 
-### Average Time Diferences
+### Average Time Differences
 
 Uses `float`s as type for the difference values
 
