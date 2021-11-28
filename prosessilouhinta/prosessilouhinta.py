@@ -2,11 +2,9 @@
 # pylint: disable=expression-not-assigned,line-too-long
 """Process mining (Finnish prosessilouhinta) from eventlogs. API."""
 import datetime as dti
-import json
 import os
 import pathlib
 import sys
-from json.decoder import JSONDecodeError
 from typing import Any, Iterator, List, Optional, Tuple, Union
 
 DEBUG_VAR = 'PROSESSILOUHINTA_DEBUG'
@@ -161,26 +159,6 @@ def parse_eventlog_csv(source: Union[pathlib.Path, Iterator[str]]) -> Union[Even
         event = (task, user, timestamp)
         evemtlog[caseid].append(event)
     return evemtlog
-
-
-def load_translation_table(path: pathlib.Path) -> Union[dict[str, str], Any]:
-    """Load the translation table into a tuple of unique non-idempotent pairs."""
-    if not path:
-        raise ValueError('translation table path not given')
-
-    if not path.is_file():
-        raise ValueError('translation table path must lead to a file')
-
-    with open(path, 'r', encoding=ENCODING) as handle:
-        try:
-            table = json.load(handle)
-        except JSONDecodeError:
-            raise ValueError('translation table path must lead to a JSON file')
-
-    if not table:
-        raise ValueError('translation table is empty')
-
-    return table
 
 
 def reader(source: Union[pathlib.Path, Iterator[str]]) -> Iterator[str]:
