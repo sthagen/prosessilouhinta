@@ -86,7 +86,18 @@ def test_activity_counts_single_case_two_distinct_tasks():
 
 def test_user_activities_single_entry():
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
-    assert pm.user_activities(eventlog) == {'u1': set(['t1'])}
+    assert pm.user_activities(eventlog) == {'u1': {'t1'}}
+
+
+def test_user_activities__single_case_two_users():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u2', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+            ('t3', 'u1', dti.datetime.strptime('2021-11-27 12:34:58', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    assert pm.user_activities(eventlog) == {'u1': {'t3', 't1'}, 'u2': {'t2'}}
 
 
 def test_work_distribution_single_entry():
