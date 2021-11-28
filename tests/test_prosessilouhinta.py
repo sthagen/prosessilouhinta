@@ -131,6 +131,42 @@ def test_working_together_single_case_two_users():
     assert pm.working_together(eventlog) == {'u1': {'u2': 1}}
 
 
+def test_working_together_single_case_three_users():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t1', 'u2', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+            ('t1', 'u3', dti.datetime.strptime('2021-11-27 12:34:58', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:59', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u2', dti.datetime.strptime('2021-11-27 12:35:00', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u3', dti.datetime.strptime('2021-11-27 12:36:01', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    assert pm.working_together(eventlog) == {'u1': {'u2': 1, 'u3': 1}, 'u2': {'u3': 1}}
+
+
+def test_working_together_two_cases_three_users():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t1', 'u2', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+            ('t1', 'u3', dti.datetime.strptime('2021-11-27 12:34:58', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:59', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u2', dti.datetime.strptime('2021-11-27 12:35:00', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u3', dti.datetime.strptime('2021-11-27 12:36:01', '%Y-%m-%d %H:%M:%S')),
+        ],
+        'c2': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t1', 'u2', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+            ('t1', 'u3', dti.datetime.strptime('2021-11-27 12:34:58', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:59', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u2', dti.datetime.strptime('2021-11-27 12:35:00', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u3', dti.datetime.strptime('2021-11-27 12:36:01', '%Y-%m-%d %H:%M:%S')),
+        ],
+    }
+    assert pm.working_together(eventlog) == {'u1': {'u2': 2, 'u3': 2}, 'u2': {'u3': 2}}
+
+
 def test_time_differences_single_case_two_tasks():
     eventlog = {
         'c1': [
