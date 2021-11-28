@@ -17,7 +17,7 @@ import prosessilouhinta.prosessilouhinta as pm
 
 def analyze(source: str) -> pm.Flow:
     """Extract control flow from eventlog source."""
-    return control_flow(pm.parse_eventlog_csv(source))
+    return pm.control_flow(pm.parse_eventlog_csv(source))
 ```
 
 ## FUNCTIONS
@@ -149,12 +149,12 @@ working_together(events: EventLog) -> Flow
 ## TYPES
 
 ```python
-EventLog = dict[str, List[Tuple[str, str, dti.datetime]]]
+EventLog = dict[str, List[Tuple[str, str, datetime.datetime]]]
 Activity = dict[str, int]
 Flow = dict[str, dict[str, int]]
-TimeDifference = dict[str, dict[str, List[dti.timedelta]]]
+TimeDifference = dict[str, dict[str, List[datetime.timedelta]]]
 TimeDifferenceFloats = dict[str, dict[str, List[float]]]
-AverageTimeDifference = dict[str, dict[str, dti.timedelta]]
+AverageTimeDifference = dict[str, dict[str, datetime.timedelta]]
 AverageTimeDifferenceFloats = dict[str, dict[str, float]]
 UserActivity = dict[str, list[str]]
 ```
