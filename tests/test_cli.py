@@ -26,13 +26,20 @@ def test_app_extract():
 
 
 def test_app_unknown():
-    result = runner.invoke(app, ['unknown'])
+    result = runner.invoke(app, ['unknown', '-t', 'does-not-exist'])
     assert result.exit_code == 2
 
 
 def test_cli_main(capsys):
     message = 'received wrong number of arguments'
     cli.main(['extract', 'no_file_there']) == 1
+    captured = capsys.readouterr()
+    assert message in captured.err
+
+
+def test_cli_main_unknown_command(capsys):
+    message = 'received unknown command'
+    cli.main(['unknown', 'STDIN', 'STDOUT', 'table-does-not-exist', 'DRYRUN']) == 2
     captured = capsys.readouterr()
     assert message in captured.err
 
