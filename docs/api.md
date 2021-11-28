@@ -81,7 +81,7 @@ reader(source: Union[pathlib.Path, Iterator[str]]) -> Iterator[str]
     Context wrapper / generator to read the lines.
 ```
 
-### Time Diferences
+### Time Differences
 
 Uses `datetime.timedelta`s as type for the difference values
 
@@ -90,7 +90,7 @@ time_differences(events: EventLog) -> TimeDifference
     Calculate time differences D from eventlog.
 ```
 
-### Time Diferences
+### Time Differences
 
 Uses `float`s as type for the difference values
 
