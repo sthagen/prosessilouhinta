@@ -25,6 +25,11 @@ def test_app_extract():
     assert result.exit_code == 1
 
 
+def test_app_unknown():
+    result = runner.invoke(app, ['unknown'])
+    assert result.exit_code == 2
+
+
 def test_cli_main(capsys):
     message = 'received wrong number of arguments'
     cli.main(['extract', 'no_file_there']) == 1
