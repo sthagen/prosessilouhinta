@@ -89,7 +89,7 @@ def test_user_activities_single_entry():
     assert pm.user_activities(eventlog) == {'u1': {'t1'}}
 
 
-def test_user_activities__single_case_two_users():
+def test_user_activities_single_case_two_users():
     eventlog = {
         'c1': [
             ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
@@ -103,6 +103,17 @@ def test_user_activities__single_case_two_users():
 def test_work_distribution_single_entry():
     eventlog = {'c1': [('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S'))]}
     assert pm.work_distribution(eventlog) == {'u1': {'t1': 1}}
+
+
+def test_work_distribution_single_case_two_distinct_tasks_two_users():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u2', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:58', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    assert pm.work_distribution(eventlog) == {'u1': {'t1': 2}, 'u2': {'t2': 1}}
 
 
 def test_working_together_single_entry():
