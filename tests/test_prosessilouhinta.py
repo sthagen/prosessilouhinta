@@ -86,4 +86,4 @@ def test_average_time_differences_single_case_two_users():
             ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
         ]
     }
-    assert pm.average_time_differences(eventlog) == {'t1': {'t2': dti.timedelta(seconds=1)}}
+    assert pm.average_time_differences(pm.time_differences(eventlog)) == {'t1': {'t2': dti.timedelta(seconds=1)}}
