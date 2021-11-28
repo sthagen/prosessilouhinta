@@ -225,3 +225,34 @@ def test_average_time_differences_single_case_two_users():
         ]
     }
     assert pm.average_time_differences(pm.time_differences(eventlog)) == {'t1': {'t2': dti.timedelta(seconds=1)}}
+
+
+def test_verify_request():
+    message = 'received wrong number of arguments'
+    request = ['extract', 'no_file_there']
+    assert pm.verify_request(request) == (2, message, [''])
+
+
+def test_verify_request_unknown_command():
+    message = 'received unknown command'
+    request = ['unknown', 'STDIN', 'STDOUT', 'table-does-not-exist', 'DRYRUN']
+    assert pm.verify_request(request) == (2, message, [''])
+
+
+def test_verify_request_source_does_not_exist():
+    message = 'source is no file'
+    request = ['extract', 'source-does-not-exist', 'STDOUT', 'table-does-not-exist', 'DRYRUN']
+    assert pm.verify_request(request) == (1, message, [''])
+
+
+def test_verify_request_target_does_exist():
+    message = 'target file exists'
+    existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
+    request = ['extract', existing_file, existing_file, 'table-does-not-exist', 'DRYRUN']
+    assert pm.verify_request(request) == (1, message, [''])
+
+
+def test_verify_request_verifier_passes():
+    existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
+    request = ['extract', existing_file, 'target-does-not-exist', 'table-does-not-exist', 'DRYRUN']
+    assert pm.verify_request(request) == (0, '', request)
