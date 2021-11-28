@@ -44,6 +44,13 @@ def test_cli_main_unknown_command(capsys):
     assert message in captured.err
 
 
+def test_cli_main_source_does_not_exist(capsys):
+    message = 'source is no file'
+    cli.main(['extract', 'source-does-not-exist', 'STDOUT', 'table-does-not-exist', 'DRYRUN']) == 2
+    captured = capsys.readouterr()
+    assert message in captured.err
+
+
 def test_cli_main_too_few_columns(capsys):
     """TODO(sthagen) passes as is will not when translation table is fixed (taken or removed)."""
     message = 'received wrong number of arguments'
