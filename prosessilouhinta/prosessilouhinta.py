@@ -192,10 +192,10 @@ def reader(path: pathlib.Path) -> Iterator[str]:
 
 def verify_request(argv: Optional[List[str]]) -> Tuple[int, str, List[str]]:
     """Gail with grace."""
-    if not argv or len(argv) != 5:
+    if not argv or len(argv) != 4:
         return 2, 'received wrong number of arguments', ['']
 
-    command, inp, out, translation_table_path, dryrun = argv
+    command, inp, out, dryrun = argv
 
     if command not in ('extract'):
         return 2, 'received unknown command', ['']
@@ -218,11 +218,7 @@ def main(argv: Union[List[str], None] = None) -> int:
         print(message, file=sys.stderr)
         return error
 
-    command, inp, out, translation_table_path, dryrun = strings
-
-    table = load_translation_table(pathlib.Path(translation_table_path))
-    if not table:
-        return 1
+    command, inp, out, dryrun = strings
 
     source = sys.stdin if not inp else reader(pathlib.Path(inp))
     if not source:
@@ -235,6 +231,5 @@ def main(argv: Union[List[str], None] = None) -> int:
         out_disp = 'STDOUT' if not out else f'"{out}"'
         print(f'  - input from:       {inp_disp}', file=sys.stderr)
         print(f'  - output to:        {out_disp}', file=sys.stderr)
-        print(f'  - translation from: "{translation_table_path}"', file=sys.stderr)
 
     return 0

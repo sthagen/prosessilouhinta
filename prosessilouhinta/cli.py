@@ -55,20 +55,6 @@ def extract(
         help='Path to non-existing output report file (default is writing to standard out)',
         metavar='<targetpath>',
     ),
-    translation_table_path: str = typer.Option(
-        '',
-        '-t',
-        '--table',
-        help=(
-            'Path to translation table file in JSON format.'
-            '\nStructure of table data is {\n'
-            '  "task": "logtaskfield",\n'
-            '  "user": "loguserfield",\n'
-            '  "timestamp": "logtimestampfield"\n'
-            '}'
-        ),
-        metavar='<translation table path>',
-    ),
     dry: bool = typer.Option(
         False,
         '-n',
@@ -84,7 +70,7 @@ def extract(
     incoming = inp if inp else (source if source != pm.STDIN else '')
     outgoing = out if out else (target if target != pm.STDOUT else '')
     dryrun = 'DRYRUN' if dry else ''
-    action = [command, incoming, outgoing, translation_table_path, dryrun]
+    action = [command, incoming, outgoing, dryrun]
     return sys.exit(pm.main(action))
 
 
