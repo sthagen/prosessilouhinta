@@ -2,6 +2,7 @@
 # pylint: disable=missing-docstring,unused-import,reimported
 import pathlib
 
+import pytest
 from typer.testing import CliRunner
 
 import prosessilouhinta
@@ -57,6 +58,15 @@ def test_cli_main_target_does_exist(capsys):
     cli.main(['extract', existing_file, existing_file, 'table-does-not-exist', 'DRYRUN']) == 1
     captured = capsys.readouterr()
     assert message in captured.err
+
+
+def test_cli_main_verifier_passes(capsys):
+    message = r'translation table path must lead to a file'
+    existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
+    with pytest.raises(ValueError, match=message):
+        _ = cli.main(['extract', existing_file, 'target-does-not-exist', 'table-does-not-exist', 'DRYRUN'])
+        captured = capsys.readouterr()
+        assert message in captured.err
 
 
 def test_cli_main_too_few_columns(capsys):
