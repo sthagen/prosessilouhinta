@@ -143,10 +143,10 @@ def working_together(events: EventLog) -> Flow:
     return W
 
 
-def parse_eventlog_csv(path: pathlib.Path) -> Union[EventLog, Any]:
+def parse_eventlog_csv(source: Union[pathlib.Path, Iterator[str]]) -> Union[EventLog, Any]:
     """Parse the eventlog into a map, matching the translation headers to columns."""
     evemtlog: EventLog = {}
-    for line in reader(path):
+    for line in reader(source):
         line = line.strip()
         if not line or line.startswith(CSV_HEAD_TOKEN):
             continue
@@ -183,10 +183,14 @@ def load_translation_table(path: pathlib.Path) -> Union[dict[str, str], Any]:
     return table
 
 
-def reader(path: pathlib.Path) -> Iterator[str]:
+def reader(source: Union[pathlib.Path, Iterator[str]]) -> Iterator[str]:
     """Context wrapper / generator to read the lines."""
-    with open(path, 'rt', encoding=ENCODING) as handle:
-        for line in handle:
+    if isinstance(source, pathlib.Path):
+        with open(source, 'rt', encoding=ENCODING) as handle:
+            for line in handle:
+                yield line
+    else:
+        for line in source:
             yield line
 
 
@@ -219,10 +223,7 @@ def main(argv: Union[List[str], None] = None) -> int:
         return error
 
     command, inp, out, dryrun = strings
-
     source = sys.stdin if not inp else reader(pathlib.Path(inp))
-    if not source:
-        return 2
 
     if dryrun:
         print('dryrun requested\n# ---', file=sys.stderr)
@@ -231,5 +232,9 @@ def main(argv: Union[List[str], None] = None) -> int:
         out_disp = 'STDOUT' if not out else f'"{out}"'
         print(f'  - input from:       {inp_disp}', file=sys.stderr)
         print(f'  - output to:        {out_disp}', file=sys.stderr)
+        return 0
+
+    eventlog = parse_eventlog_csv(source)
+    print(eventlog)
 
     return 0
