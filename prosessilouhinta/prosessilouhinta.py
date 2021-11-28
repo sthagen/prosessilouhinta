@@ -26,7 +26,9 @@ EventLog = dict[str, List[Tuple[str, str, dti.datetime]]]
 Activity = dict[str, int]
 Flow = dict[str, dict[str, int]]
 TimeDifference = dict[str, dict[str, List[dti.timedelta]]]
+TimeDifferenceFloats = dict[str, dict[str, List[float]]]
 AverageTimeDifference = dict[str, dict[str, dti.timedelta]]
+AverageTimeDifferenceFloats = dict[str, dict[str, float]]
 UserActivity = dict[str, list[str]]
 
 
@@ -60,7 +62,7 @@ def control_flow(events: EventLog) -> Flow:
 
 
 def time_differences(events: EventLog) -> TimeDifference:
-    """Calculate average time differences D from eventlog."""
+    """Calculate time differences D from eventlog."""
     D: TimeDifference = {}
     for caseid in events:
         for i in range(0, len(events[caseid]) - 1):
@@ -75,8 +77,19 @@ def time_differences(events: EventLog) -> TimeDifference:
     return D
 
 
+def time_differences_as_float(D: TimeDifference) -> TimeDifferenceFloats:
+    """Convert the time differences from D per case transitions to float."""
+    DF: TimeDifferenceFloats = {}
+    for ai in D:
+        DF[ai] = {}
+        for aj in D[ai]:
+            DF[ai][aj] = [delta.total_seconds() for delta in D[ai][aj]]
+
+    return DF
+
+
 def average_time_differences(D: TimeDifference) -> AverageTimeDifference:
-    """Average the time diferences from D per case transitions."""
+    """Average the time differences from D per case transitions."""
     AD: AverageTimeDifference = {}
     for ai in sorted(D.keys()):
         AD[ai] = {}
@@ -88,6 +101,17 @@ def average_time_differences(D: TimeDifference) -> AverageTimeDifference:
             AD[ai][aj] = avg_td
 
     return AD
+
+
+def average_time_differences_as_float(AD: AverageTimeDifference) -> AverageTimeDifferenceFloats:
+    """Convert the average time differences from D per case transitions to float."""
+    ADF: AverageTimeDifferenceFloats = {}
+    for ai in AD:
+        ADF[ai] = {}
+        for aj in AD[ai]:
+            ADF[ai][aj] = AD[ai][aj].total_seconds()
+
+    return ADF
 
 
 def user_activities(events: EventLog) -> UserActivity:
@@ -218,9 +242,12 @@ def main(argv: Union[List[str], None] = None) -> int:
         return 0
 
     eventlog = parse_eventlog_csv(source)
+    D = time_differences(eventlog)
     report = {
         'activity_counts': activity_counts(eventlog),
+        'average_time_differences': average_time_differences_as_float(average_time_differences(D)),
         'control_flow': control_flow(eventlog),
+        'time_differences': time_differences_as_float(D),
         'user_activities': user_activities(eventlog),
         'work_distribution': work_distribution(eventlog),
         'working_together': working_together(eventlog),
