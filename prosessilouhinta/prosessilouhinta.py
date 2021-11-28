@@ -2,6 +2,7 @@
 # pylint: disable=expression-not-assigned,line-too-long
 """Process mining (Finnish prosessilouhinta) from eventlogs. API."""
 import datetime as dti
+import json
 import os
 import pathlib
 import sys
@@ -26,7 +27,7 @@ Activity = dict[str, int]
 Flow = dict[str, dict[str, int]]
 TimeDifference = dict[str, dict[str, List[dti.timedelta]]]
 AverageTimeDifference = dict[str, dict[str, dti.timedelta]]
-UserActivity = dict[str, set[str]]
+UserActivity = dict[str, list[str]]
 
 
 def activity_counts(events: EventLog) -> Activity:
@@ -97,8 +98,12 @@ def user_activities(events: EventLog) -> UserActivity:
             ai = events[caseid][i][0]
             ui = events[caseid][i][1]
             if ui not in UA:
-                UA[ui] = set()
-            UA[ui].add(ai)
+                UA[ui] = []
+            if ai not in UA[ui]:
+                UA[ui].append(ai)
+
+    for u in UA:
+        UA[u].sort()
 
     return UA
 
@@ -213,6 +218,17 @@ def main(argv: Union[List[str], None] = None) -> int:
         return 0
 
     eventlog = parse_eventlog_csv(source)
-    print(eventlog)
+    report = {
+        'activity_counts': activity_counts(eventlog),
+        'control_flow': control_flow(eventlog),
+        'user_activities': user_activities(eventlog),
+        'work_distribution': work_distribution(eventlog),
+        'working_together': working_together(eventlog),
+    }
+    if not out:
+        json.dump(report, sys.stdout)
+    else:
+        with open(pathlib.Path(out), 'wt', encoding=ENCODING) as handle:
+            json.dump(report, handle)
 
     return 0
