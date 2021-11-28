@@ -46,7 +46,15 @@ def test_cli_main_unknown_command(capsys):
 
 def test_cli_main_source_does_not_exist(capsys):
     message = 'source is no file'
-    cli.main(['extract', 'source-does-not-exist', 'STDOUT', 'table-does-not-exist', 'DRYRUN']) == 2
+    cli.main(['extract', 'source-does-not-exist', 'STDOUT', 'table-does-not-exist', 'DRYRUN']) == 1
+    captured = capsys.readouterr()
+    assert message in captured.err
+
+
+def test_cli_main_target_does_exist(capsys):
+    message = 'target file exists'
+    existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
+    cli.main(['extract', existing_file, existing_file, 'table-does-not-exist', 'DRYRUN']) == 1
     captured = capsys.readouterr()
     assert message in captured.err
 
