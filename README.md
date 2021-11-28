@@ -1,6 +1,6 @@
 # prosessilouhinta
 
-Process mining (Finnish prosessilouhinta)from eventlogs
+Process mining (Finnish prosessilouhinta) from eventlogs
 
 ## Status
 
