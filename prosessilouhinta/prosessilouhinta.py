@@ -202,7 +202,7 @@ def reader(source: Union[pathlib.Path, Iterator[str]]) -> Iterator[str]:
 
 
 def verify_request(argv: Optional[List[str]]) -> Tuple[int, str, List[str]]:
-    """Gail with grace."""
+    """Fail with grace."""
     if not argv or len(argv) != 4:
         return 2, 'received wrong number of arguments', ['']
 
