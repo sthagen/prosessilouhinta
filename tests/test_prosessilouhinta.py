@@ -109,7 +109,7 @@ def test_working_together_single_case_two_users():
     assert pm.working_together(eventlog) == {'u1': {'u2': 1}}
 
 
-def test_time_differences_single_case_two_users():
+def test_time_differences_single_case_two_tasks():
     eventlog = {
         'c1': [
             ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
@@ -117,6 +117,22 @@ def test_time_differences_single_case_two_users():
         ]
     }
     assert pm.time_differences(eventlog) == {'t1': {'t2': [dti.timedelta(seconds=1)]}}
+
+
+def test_time_differences_single_case_two_distinct_tasks():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u2', dti.datetime.strptime('2021-11-27 12:34:58', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u3', dti.datetime.strptime('2021-11-27 12:34:59', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    expected_diffs = {
+        't1': {'t2': [dti.timedelta(seconds=1)]},
+        't2': {'t2': [dti.timedelta(seconds=1), dti.timedelta(seconds=1)]},
+    }
+    assert pm.time_differences(eventlog) == expected_diffs
 
 
 def test_average_time_differences_single_case_two_users():
