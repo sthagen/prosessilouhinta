@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 local_publi.sh
 local_*
+.vscode/
