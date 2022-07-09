@@ -1,21 +1,21 @@
 .DEFAULT_GOAL := all
-isort = isort prosessilouhinta tests
-black = black -S -l 120 --target-version py39 prosessilouhinta tests
+isort = isort prosessilouhinta test
+black = black -S -l 120 --target-version py39 prosessilouhinta test
 
 .PHONY: install
 install:
 	pip install -U pip wheel
-	pip install -r tests/requirements.txt
+	pip install -r test/requirements.txt
 	pip install -U .
 
 .PHONY: install-all
 install-all: install
-	pip install -r tests/requirements-dev.txt
+	pip install -r test/requirements-dev.txt
 
 .PHONY: init
 init:
-	pip install -r tests/requirements.txt
-	pip install -r tests/requirements-dev.txt
+	pip install -r test/requirements.txt
+	pip install -r test/requirements-dev.txt
 
 .PHONY: format
 format:
@@ -25,7 +25,7 @@ format:
 .PHONY: lint
 lint:
 	python setup.py check -ms
-	flake8 prosessilouhinta/ tests/
+	flake8 prosessilouhinta/ test/
 	$(isort) --check-only --df
 	$(black) --check --diff
 
