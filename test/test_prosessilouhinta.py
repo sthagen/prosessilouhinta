@@ -7,7 +7,7 @@ import pytest
 
 import prosessilouhinta.prosessilouhinta as pm
 
-BASIC_FIXTURES_PATH = pathlib.Path('tests', 'fixtures', 'basic')
+BASIC_FIXTURES_PATH = pathlib.Path('test', 'fixtures', 'basic')
 
 
 def test_parse_empty_eventlog_csv():

@@ -8,7 +8,7 @@ import prosessilouhinta
 import prosessilouhinta.cli as cli
 from prosessilouhinta.cli import app
 
-BASIC_FIXTURES_PATH = pathlib.Path('tests', 'fixtures', 'basic')
+BASIC_FIXTURES_PATH = pathlib.Path('test', 'fixtures', 'basic')
 
 runner = CliRunner()
 
