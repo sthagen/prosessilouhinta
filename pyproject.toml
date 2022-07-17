@@ -1,11 +1,8 @@
-[tool.pyflow]
-name = "prosessilouhinta"
-py_version = "3.8"
-version = "2021.11.27"
-authors = ["Stefan Hagen <stefan@hagen.link>"]
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
 
-[tool.pyflow.scripts]
-
-[tool.pyflow.dependencies]
-
-[tool.pyflow.dev-dependencies]
+[tool.black]
+line-length = 120
+skip-string-normalization = "True"
+target-version = ["py38", "py39", "py310"]
