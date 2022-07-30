@@ -25,19 +25,15 @@ theme:
 extra:
   generator: false
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/sthagen/prosessilouhinta
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/prosessilouhinta
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/shagen/prosessilouhinta
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/shage
 
-copyright: Copyright &copy; 2021 Stefan Hagen under the MIT license
+copyright: Copyright &copy; 2022 Stefan Hagen under the MIT license
 
-repo_name: sthagen/prosessilouhinta
-repo_url: https://github.com/sthagen/prosessilouhinta
+repo_name: ~sthagen/prosessilouhinta
+repo_url: https://git.sr.ht/~sthagen/prosessilouhinta
 edit_uri: ""
 
 plugins:
