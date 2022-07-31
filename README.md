@@ -2,7 +2,10 @@
 
 Process mining (Finnish prosessilouhinta) from eventlogs.
 
-[![license](https://img.shields.io/github/license/sthagen/prosessilouhinta.svg?style=flat)](https://github.com/sthagen/prosessilouhinta/blob/default/LICENSE)
+Given a CSV file containing an eventlog with case IDs, acitivities/tasks, user IDs, 
+and timestamps some evaluations are performed that may assist in process mining.
+
+[License: MIT](https://git.sr.ht/~sthagen/prosessilouhinta/tree/default/item/LICENSE)
 
 [![version](https://img.shields.io/pypi/v/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
 [![downloads](https://img.shields.io/pypi/dm/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
@@ -10,9 +13,18 @@ Process mining (Finnish prosessilouhinta) from eventlogs.
 [![supported-versions](https://img.shields.io/pypi/pyversions/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
 [![supported-implementations](https://img.shields.io/pypi/implementation/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
 
-Given a CSV file containing an eventlog with case IDs, acitivities/tasks, user IDs, 
-and timestamps some evaluations are performed that may assist in process mining.
+## Documentation
 
+User and developer [documentation of prosessilouhinta](https://codes.dilettant.life/docs/prosessilouhinta).
+
+## Bug Tracker
+
+Feature requests and bug reports are bested entered in the [todos of prosessilouhinta](https://todo.sr.ht/~sthagen/prosessilouhinta).
+
+## Primary Source repository
+
+The primary source repository of [prosessilouhinta is at sourcehut](https://git.sr.ht/~sthagen/prosessilouhinta)
+a collection of tools useful for software development.
 
 ## Status
 
