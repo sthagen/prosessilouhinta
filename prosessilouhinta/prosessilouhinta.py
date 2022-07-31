@@ -34,7 +34,7 @@ UserActivity = dict[str, list[str]]
 
 def activity_counts(events: EventLog) -> Activity:
     """Calculate the activity counts A from eventlog."""
-    A: Activity = {}
+    A: Activity = {}  # noqa
     for caseid in events:
         for i in range(0, len(events[caseid])):
             ai = events[caseid][i][0]
@@ -47,7 +47,7 @@ def activity_counts(events: EventLog) -> Activity:
 
 def control_flow(events: EventLog) -> Flow:
     """Calculate the control flow from eventlog."""
-    F: Flow = {}
+    F: Flow = {}  # noqa
     for caseid in events:
         for i in range(0, len(events[caseid]) - 1):
             ai = events[caseid][i][0]
@@ -63,7 +63,7 @@ def control_flow(events: EventLog) -> Flow:
 
 def time_differences(events: EventLog) -> TimeDifference:
     """Calculate time differences D from eventlog."""
-    D: TimeDifference = {}
+    D: TimeDifference = {}  # noqa
     for caseid in events:
         for i in range(0, len(events[caseid]) - 1):
             (ai, _, ti) = events[caseid][i]
@@ -77,9 +77,9 @@ def time_differences(events: EventLog) -> TimeDifference:
     return D
 
 
-def time_differences_as_float(D: TimeDifference) -> TimeDifferenceFloats:
+def time_differences_as_float(D: TimeDifference) -> TimeDifferenceFloats:  # noqa
     """Convert the time differences from D per case transitions to float."""
-    DF: TimeDifferenceFloats = {}
+    DF: TimeDifferenceFloats = {}  # noqa
     for ai in D:
         DF[ai] = {}
         for aj in D[ai]:
@@ -88,9 +88,9 @@ def time_differences_as_float(D: TimeDifference) -> TimeDifferenceFloats:
     return DF
 
 
-def average_time_differences(D: TimeDifference) -> AverageTimeDifference:
+def average_time_differences(D: TimeDifference) -> AverageTimeDifference:  # noqa
     """Average the time differences from D per case transitions."""
-    AD: AverageTimeDifference = {}
+    AD: AverageTimeDifference = {}  # noqa
     for ai in sorted(D.keys()):
         AD[ai] = {}
         for aj in sorted(D[ai].keys()):
@@ -103,9 +103,9 @@ def average_time_differences(D: TimeDifference) -> AverageTimeDifference:
     return AD
 
 
-def average_time_differences_as_float(AD: AverageTimeDifference) -> AverageTimeDifferenceFloats:
+def average_time_differences_as_float(AD: AverageTimeDifference) -> AverageTimeDifferenceFloats:  # noqa
     """Convert the average time differences from D per case transitions to float."""
-    ADF: AverageTimeDifferenceFloats = {}
+    ADF: AverageTimeDifferenceFloats = {}  # noqa
     for ai in AD:
         ADF[ai] = {}
         for aj in AD[ai]:
@@ -116,7 +116,7 @@ def average_time_differences_as_float(AD: AverageTimeDifference) -> AverageTimeD
 
 def user_activities(events: EventLog) -> UserActivity:
     """Calculate the set of activities UA performed by each user from the eventlog."""
-    UA: UserActivity = {}
+    UA: UserActivity = {}  # noqa
     for caseid in events:
         for i in range(0, len(events[caseid])):
             ai = events[caseid][i][0]
@@ -134,7 +134,7 @@ def user_activities(events: EventLog) -> UserActivity:
 
 def work_distribution(events: EventLog) -> Flow:
     """Calculate the count of activities UAC performed by each user from the eventlog."""
-    UAC: Flow = {}
+    UAC: Flow = {}  # noqa
     for caseid in events:
         for i in range(0, len(events[caseid])):
             ai = events[caseid][i][0]
@@ -150,13 +150,13 @@ def work_distribution(events: EventLog) -> Flow:
 
 def working_together(events: EventLog) -> Flow:
     """Calculate the working together matrix W from eventlog."""
-    W: Flow = {}
+    W: Flow = {}  # noqa
     for caseid in events:
-        S = set()
+        S = set()  # noqa
         for i in range(0, len(events[caseid])):
             ui = events[caseid][i][1]
             S.add(ui)
-        L = sorted(list(S))
+        L = sorted(list(S))  # noqa
         for i in range(0, len(L) - 1):
             for j in range(i + 1, len(L)):
                 ui = L[i]
@@ -242,7 +242,7 @@ def main(argv: Union[List[str], None] = None) -> int:
         return 0
 
     eventlog = parse_eventlog_csv(source)
-    D = time_differences(eventlog)
+    D = time_differences(eventlog)  # noqa
     report = {
         'activity_counts': activity_counts(eventlog),
         'average_time_differences': average_time_differences_as_float(average_time_differences(D)),
