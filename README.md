@@ -19,7 +19,7 @@ User and developer [documentation of prosessilouhinta](https://codes.dilettant.l
 
 ## Bug Tracker
 
-Feature requests and bug reports are bested entered in the [todos of prosessilouhinta](https://todo.sr.ht/~sthagen/prosessilouhinta).
+Feature requests and bug reports are best entered in the [todos of prosessilouhinta](https://todo.sr.ht/~sthagen/prosessilouhinta).
 
 ## Primary Source repository
 
