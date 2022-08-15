@@ -30,5 +30,5 @@ The primary source of `prosessilouhinta` lives somewhere on a mountain in Centra
 But, we use decentralized version control (git), so any clone can become the source to everyone's benefit, no central only code.
 Anyway, the preferred public clones of `prosessilouhinta` are:
 
-* [on codeberg](https://codeberg.org/sthagen/prosessilouhinta) - a collaboration platform and git hosting for free and open source software, content and projects.
+* [on codeberg](https://codeberg.org/sthagen/prosessilouhinta) - a democratic community-driven, non-profit software development platform operated by Codeberg e.V.
 * [at sourcehut](https://git.sr.ht/~sthagen/prosessilouhinta) - a collection of tools useful for software development.
