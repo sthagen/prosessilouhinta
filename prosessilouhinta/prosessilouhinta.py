@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# pylint: disable=expression-not-assigned,line-too-long
 """Process mining (Finnish prosessilouhinta) from eventlogs. API."""
 import datetime as dti
 import json

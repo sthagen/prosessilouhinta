@@ -1,6 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-# pylint: disable=line-too-long
 """Commandline API gateway for prosessilouhnita."""
 import sys
 from typing import Any, List, Union
