@@ -13,7 +13,7 @@ DEBUG = os.getenv(DEBUG_VAR)
 
 ENCODING = 'utf-8'
 ENCODING_ERRORS_POLICY = 'ignore'
-CSV_HEAD_TOKEN = '#'
+CSV_HEAD_TOKEN = '#'  # nosec B105
 CSV_SEP = ','
 
 STDIN, STDOUT = 'STDIN', 'STDOUT'
