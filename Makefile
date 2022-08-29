@@ -1,6 +1,9 @@
 .DEFAULT_GOAL := all
-isort = isort prosessilouhinta test
 black = black -S -l 120 --target-version py39 prosessilouhinta test
+flake8 = flake8 prosessilouhinta test
+isort = isort prosessilouhinta test
+pytest = pytest --asyncio-mode=strict --cov=prosessilouhinta --cov-report term-missing:skip-covered --cov-branch --log-format="%(levelname)s %(message)s"
+types = mypy prosessilouhinta
 
 .PHONY: install
 install:
@@ -12,30 +15,30 @@ install:
 install-all: install
 	pip install -r test/requirements-dev.txt
 
-.PHONY: init
-init:
-	pip install -r test/requirements.txt
-	pip install -r test/requirements-dev.txt
-
 .PHONY: format
 format:
 	$(isort)
 	$(black)
 
+.PHONY: init
+init:
+	pip install -r test/requirements.txt
+	pip install -r test/requirements-dev.txt
+
 .PHONY: lint
 lint:
 	python setup.py check -ms
-	flake8 prosessilouhinta/ test/
+	$(flake8)
 	$(isort) --check-only --df
 	$(black) --check --diff
 
-.PHONY: mypy
-mypy:
-	mypy prosessilouhinta
+.PHONY: types
+types:
+	$(types)
 
 .PHONY: test
 test: clean
-	pytest --asyncio-mode=strict --cov=prosessilouhinta --cov-report term-missing:skip-covered --cov-branch --log-format="%(levelname)s %(message)s"
+	$(pytest)
 
 .PHONY: testcov
 testcov: test
@@ -43,7 +46,26 @@ testcov: test
 	@coverage html
 
 .PHONY: all
-all: lint mypy testcov
+all: lint types testcov
+
+.PHONY: sbom
+sbom:
+	@./gen-sbom
+	@cog -I. -P -c -r --check --markers="[[fill ]]] [[[end]]]" -p "from gen_sbom import *;from gen_licenses import *" docs/third-party/README.md
+
+.PHONY: version
+version:
+	@cog -I. -P -c -r --check --markers="[[fill ]]] [[[end]]]" -p "from gen_version import *" pyproject.toml prosessilouhinta/__init__.py
+
+.PHONY: secure
+secure:
+	@bandit --output current-bandit.json --baseline baseline-bandit.json --format json --recursive --quiet --exclude ./test,./build prosessilouhinta
+	@diff -Nu {baseline,current}-bandit.json; printf "^ Only the timestamps ^^ ^^ ^^ ^^ ^^ ^^ should differ. OK?\n"
+
+.PHONY: baseline
+baseline:
+	@bandit --output baseline-bandit.json --format json --recursive --quiet --exclude ./test,./build prosessilouhinta
+	@cat baseline-bandit.json; printf "\n^ The new baseline ^^ ^^ ^^ ^^ ^^ ^^. OK?\n"
 
 .PHONY: clean
 clean:
