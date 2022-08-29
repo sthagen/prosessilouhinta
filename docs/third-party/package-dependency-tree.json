@@ -1,0 +1,17 @@
+[
+    {
+        "key": "typer",
+        "package_name": "typer",
+        "installed_version": "0.6.1",
+        "required_version": "0.6.1",
+        "dependencies": [
+            {
+                "key": "click",
+                "package_name": "click",
+                "installed_version": "8.1.3",
+                "required_version": ">=7.1.1,<9.0.0",
+                "dependencies": []
+            }
+        ]
+    }
+]

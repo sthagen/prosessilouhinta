@@ -1,0 +1,5 @@
+digraph {
+	typer [label="typer\n0.6.1"]
+	typer -> click [label=">=7.1.1,<9.0.0"]
+	click [label="click\n8.1.3"]
+}

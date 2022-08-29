@@ -1,0 +1,2 @@
+typer==0.6.1
+  - click [required: >=7.1.1,<9.0.0, installed: 8.1.3]
