@@ -31,7 +31,7 @@ JSON file with the complete package dependency tree info of: [the full dependenc
 
 Base graphviz file in dot format: [Trees of the direct dependencies](package-dependency-tree.dot.txt)
 
-<img src="https://raw.githubusercontent.com/sthagen/pilli/default/docs/third-party/package-dependency-tree.svg" alt="Trees of the direct dependencies" title="Trees of the direct dependencies"/>
+<img src="./package-dependency-tree.svg" alt="Trees of the direct dependencies" title="Trees of the direct dependencies"/>
 
 ### Console Representation
 
