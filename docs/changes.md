@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022.09.22
+
+* Bumped dependencies and added more tests for higher brnch coverage
+
 ## 2022.08.29
 
 * Added cleansing of site folder to clean target
