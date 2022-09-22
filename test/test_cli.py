@@ -30,21 +30,21 @@ def test_app_unknown():
 
 def test_cli_main(capsys):
     message = 'received wrong number of arguments'
-    cli.main(['extract', 'no_file_there']) == 1
+    assert cli.main(['extract', 'no_file_there']) == 2
     captured = capsys.readouterr()
     assert message in captured.err
 
 
 def test_cli_main_unknown_command(capsys):
     message = 'received unknown command'
-    cli.main(['unknown', 'STDIN', 'STDOUT', 'DRYRUN']) == 2
+    assert cli.main(['unknown', 'STDIN', 'STDOUT', 'DRYRUN']) == 2
     captured = capsys.readouterr()
     assert message in captured.err
 
 
 def test_cli_main_source_does_not_exist(capsys):
     message = 'source is no file'
-    cli.main(['extract', 'source-does-not-exist', 'STDOUT', 'DRYRUN']) == 1
+    assert cli.main(['extract', 'source-does-not-exist', 'STDOUT', 'DRYRUN']) == 1
     captured = capsys.readouterr()
     assert message in captured.err
 
@@ -52,7 +52,7 @@ def test_cli_main_source_does_not_exist(capsys):
 def test_cli_main_target_does_exist(capsys):
     message = 'target file exists'
     existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
-    cli.main(['extract', existing_file, existing_file, 'DRYRUN']) == 1
+    assert cli.main(['extract', existing_file, existing_file, 'DRYRUN']) == 1
     captured = capsys.readouterr()
     assert message in captured.err
 
@@ -67,6 +67,6 @@ def test_cli_main_verifier_passes(capsys):
 
 def test_cli_main_too_few_columns(capsys):
     sample = 'received wrong number of arguments'
-    cli.main(['extract', BASIC_FIXTURES_PATH / 'single-too-short-data-line.csv']) == 1
+    assert cli.main(['extract', BASIC_FIXTURES_PATH / 'single-too-short-data-line.csv']) == 2
     captured = capsys.readouterr()
     assert sample in captured.err
