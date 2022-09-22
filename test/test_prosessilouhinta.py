@@ -245,6 +245,19 @@ def test_average_time_differences_single_case_two_users():
     assert pm.average_time_differences(pm.time_differences(eventlog)) == {'t1': {'t2': dti.timedelta(seconds=1)}}
 
 
+def test_average_time_differences_as_float_single_case_two_users():
+    eventlog = {
+        'c1': [
+            ('t1', 'u1', dti.datetime.strptime('2021-11-27 12:34:56', '%Y-%m-%d %H:%M:%S')),
+            ('t2', 'u1', dti.datetime.strptime('2021-11-27 12:34:57', '%Y-%m-%d %H:%M:%S')),
+        ]
+    }
+    AD = pm.average_time_differences(pm.time_differences(eventlog))  # noqa
+    assert AD == {'t1': {'t2': dti.timedelta(seconds=1)}}
+    ADF = pm.average_time_differences_as_float(AD)  # noqa
+    assert ADF == {'t1': {'t2': 1.0}}
+
+
 def test_verify_request():
     message = 'received wrong number of arguments'
     request = ['extract', 'no_file_there']
