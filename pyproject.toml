@@ -2,7 +2,79 @@
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "prosessilouhinta"
+version = "2022.9.24"
+description = "Process mining (Finnish prosessilouhinta) from eventlogs."
+readme = "README.md"
+authors = [{ name = "Stefan Hagen", email = "stefan@hagen.link" }]
+maintainers = [{ name = "Stefan Hagen", email = "stefan@hagen.link" }]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+keywords = ["developer-tools", "process-mining"]
+dependencies = [
+    "typer >= 0.6.1",
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = ["black", "coverage", "flake8", "hypothesis", "mypy", "pytest", "pytest-cov", "pytest-flake8"]
+
+[project.urls]
+Homepage = "https://git.sr.ht/~sthagen/prosessilouhinta"
+Bug-Tracker = "https://todo.sr.ht/~sthagen/prosessilouhinta"
+Documentation = "https://codes.dilettant.life/docs/prosessilouhinta"
+Source-Code = "https://git.sr.ht/~sthagen/prosessilouhinta"
+Test-Coverage = "https://codes.dilettant.life/coverage/prosessilouhinta"
+
+[project.scripts]
+prosessilouhinta = "prosessilouhinta.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["prosessilouhinta"]
+exclude = ["test*"]
+
+[bdist_wheel]
+universal = true
+
 [tool.black]
 line-length = 120
-skip-string-normalization = "True"
+skip-string-normalization = true
 target-version = ["py38", "py39", "py310"]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+precision = 2
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "@overload",
+]
+omit = [
+    "*/__main__.py",
+]
+
+[tool.isort]
+line_length = 120
+known_first_party = "prosessilouhinta"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+
+[tool.mypy]
+strict = true
+implicit_reexport = true
+
+[tool.pytest]
+testpaths = "test"
+filterwarnings = "error"
