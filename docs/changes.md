@@ -1,10 +1,6 @@
 # Changelog
 
-## 2022.09.22
-
-* Bumped dependencies and added more tests for higher brnch coverage
-
-## 2022.08.29
+## 2022.09.24
 
 * Added cleansing of site folder to clean target
 * Added developer dep for docstring style check from cartesian strategy source
@@ -22,6 +18,7 @@
 * Fixed typos in documentation # 3
 * Fixed, updated, and harmonized make file
 * Made README and docs landing page lobby for the distributed in dvcs (git), codeberg, and sourcehut
+* Migrated from setup.cfg to pyproject.toml for packaging
 * Patched README and docs landing page to provide the original codeberg blurb from https://docs.codeberg.org/getting-started/what-is-codeberg/
 * Removed dev tool that triggers false positive on license deviations at libraries.io and adapted to new test folder name
 * Removed final traces of github from the docs
