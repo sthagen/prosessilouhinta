@@ -3,6 +3,9 @@ site_description: Process mining (Finnish prosessilouhinta) from eventlogs.
 
 theme:
   name: 'material'
+  features:
+    - navigation.expand
+    - toc.integrate
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
