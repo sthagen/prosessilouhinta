@@ -211,6 +211,6 @@ Some more help:
 Finding the version:
 
 ```console
-prosessilouhinta version
-$ Process mining (Finnish prosessilouhinta) from eventlogs. version 2021.11.27
+❯ prosessilouhinta version
+Process mining (Finnish prosessilouhinta) from eventlogs. version 2022.11.13+parent.2f7619f1
 ```
