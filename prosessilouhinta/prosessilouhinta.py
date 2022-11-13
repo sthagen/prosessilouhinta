@@ -6,6 +6,8 @@ import pathlib
 import sys
 from typing import Any, Iterator, List, Optional, Tuple, Union
 
+import prosessilouhinta.cpa as cpa
+
 DEBUG_VAR = 'PROSESSILOUHINTA_DEBUG'
 DEBUG = os.getenv(DEBUG_VAR)
 
@@ -206,7 +208,7 @@ def verify_request(argv: Optional[List[str]]) -> Tuple[int, str, List[str]]:
 
     command, inp, out, dryrun = argv
 
-    if command not in ('extract'):
+    if command not in ('extract',):
         return 2, 'received unknown command', ['']
 
     if inp:
@@ -255,5 +257,41 @@ def main(argv: Union[List[str], None] = None) -> int:
     else:
         with open(pathlib.Path(out), 'wt', encoding=ENCODING) as handle:
             json.dump(report, handle)
+
+    return 0
+
+
+def verify_cpa_request(argv: Optional[List[str]]) -> Tuple[int, str, List[str]]:
+    """Fail with grace for CPA."""
+    if not argv or len(argv) != 2:
+        return 2, 'received wrong number of arguments', ['']
+
+    command, inp = argv
+
+    if command not in ('cpa',):
+        return 2, 'received unknown command', ['']
+
+    if inp:
+        if not pathlib.Path(str(inp)).is_file():
+            return 1, 'source is no file', ['']
+
+    return 0, '', argv
+
+
+def cpa_dia(argv: Union[List[str], None] = None) -> int:
+    """Drive the CPA diagramming."""
+    error, message, strings = verify_cpa_request(argv)
+    if error:
+        print(message, file=sys.stderr)
+        return error
+
+    command, inp = strings
+
+    with open(inp, 'rt', encoding='utf-8') as handle:
+        peek = json.load(handle)  # TODO not elegant and plausible use case to not state the name ...
+
+    p = cpa.Node(peek.get('name', 'no-name-found-for-project - check your data'))
+    p.load_network(str(inp))
+    print(p.aon_diagram_text_dump())
 
     return 0
