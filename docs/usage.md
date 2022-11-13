@@ -5,7 +5,7 @@ For use from python programs cf. [API](api.md)
 On the command line given an eventlog like:
 
 ```console
-$ cat tests/fixtures/basic/small-eventlog.csv
+❯ cat tests/fixtures/basic/small-eventlog.csv
 #case_id,task,user,ts_text
 c1,t1,u1,2021-11-27 12:34:56
 c1,t2,u2,2021-11-27 12:34:57
@@ -33,7 +33,7 @@ c10,t2,u3,2021-11-27 13:34:57
 Asking for a dryrun:
 
 ```console
-$ prosessilouhinta extract --dryrun < tests/fixtures/basic/small-eventlog.csv
+❯ prosessilouhinta extract --dryrun < test/fixtures/basic/small-eventlog.csv
 dryrun requested
 # ---
 * resources used:
@@ -44,7 +44,7 @@ dryrun requested
 Calling the app (and piping the out put into jq) gives:
 
 ```console
-$ prosessilouhinta extract  < tests/fixtures/basic/small-eventlog.csv | jq . -C
+❯ prosessilouhinta extract  < test/fixtures/basic/small-eventlog.csv | jq . -C
 {
   "activity_counts": {
     "t1": 10,
@@ -155,18 +155,57 @@ Currently not much more is implemented.
 Asking for help:
 
 ```console
-$ prosessilouhinta
-Usage: prosessilouhinta [OPTIONS] COMMAND [ARGS]...
+❯ prosessilouhinta
 
-  Process mining (Finnish prosessilouhinta) from eventlogs.
+ Usage: prosessilouhinta [OPTIONS] COMMAND [ARGS]...
 
-Options:
-  -V, --version  Display the prosessilouhinta version and exit
-  -h, --help     Show this message and exit.
+ Process mining (Finnish prosessilouhinta) from eventlogs.
 
-Commands:
-  extract  Translate from a language to a 'langauge'.
-  version  Display the afasi version and exit
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --version  -V        Display the prosessilouhinta version and exit                                                   │
+│ --help     -h        Show this message and exit.                                                                     │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ───────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ cpa       Apply Critical Path Analysis (CPA) on input and produce activity-on-nodes diagram for critical path.       │
+│ extract   Translate from a language to a 'langauge'.                                                                 │
+│ version   Display the prosessilouhinta  version and exit                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+```
+
+Creating an activity-on-nodes diagram per critical path analysis:
+
+```console
+❯ prosessilouhinta cpa test/fixtures/basic/cpa-micro.json
++-----------+    +-----------+    +------------+
+|   DUR=3   |    |   DUR=6   |    |   DUR=5    |
++-----------+    +-----------+    +------------+
+|ES=0| |EF=3|    |ES=3| |EF=9|    |ES=9| |EF=14|
+|----|A|----| => |----|D|----| => |----|E|-----|
+|LS=0| |LF=3|    |LS=3| |LF=9|    |LS=9| |LF=14|
++-----------+    +-----------+    +------------+
+|  DRAG=n/a |    |  DRAG=n/a |    |  DRAG=n/a  |
++-----------+    +-----------+    +------------+
+
+```
+
+Some more help:
+
+```console
+❯ python -m prosessilouhinta cpa --help
+
+ Usage: prosessilouhinta cpa [OPTIONS] [SOURCE]
+
+ Apply Critical Path Analysis (CPA) on input and produce activity-on-nodes diagram for critical path.
+
+╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   source      [SOURCE]  [default: STDIN]                                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --input  -i      <sourcepath>  Path to input eventlog file (default is reading from standard in)                     │
+│ --help   -h                    Show this message and exit.                                                           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
 ```
 
 Finding the version:
