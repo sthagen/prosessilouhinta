@@ -54,6 +54,15 @@ control_flow(events: EventLog) -> Flow
     Calculate the control flow from eventlog.
 ```
 
+### CPA DIA
+
+Support for the commandline API
+
+```python
+cpa_dia(argv: Optional[List[str]] = None) -> int
+    Drive the CPA diagramming.
+```
+
 ### Main
 
 Support for the commandline API
