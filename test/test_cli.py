@@ -28,45 +28,46 @@ def test_app_unknown():
     assert result.exit_code == 2
 
 
-def test_cli_main(capsys):
-    message = 'received wrong number of arguments'
-    assert cli.main(['extract', 'no_file_there']) == 2
-    _, err = capsys.readouterr()
-    assert message in err
-
-
-def test_cli_main_unknown_command(capsys):
-    message = 'received unknown command'
-    assert cli.main(['unknown', 'STDIN', 'STDOUT', 'DRYRUN']) == 2
-    _, err = capsys.readouterr()
-    assert message in err
-
-
-def test_cli_main_source_does_not_exist(capsys):
+def test_cli_main():
     message = 'source is no file'
-    assert cli.main(['extract', 'source-does-not-exist', 'STDOUT', 'DRYRUN']) == 1
-    _, err = capsys.readouterr()
-    assert message in err
+    result = runner.invoke(app, ['extract', 'no_file_there'])
+    assert result.exit_code == 1
+    assert message in result.stdout
 
 
-def test_cli_main_target_does_exist(capsys):
+def test_cli_main_unknown_command():
+    message = 'No such command'
+    result = runner.invoke(app, ['unknown', 'STDIN', 'STDOUT', 'DRYRUN'])
+    assert result.exit_code == 2
+    assert message in result.stdout
+
+
+def test_cli_main_source_does_not_exist():
+    message = 'source is no file'
+    result = runner.invoke(app, ['extract', 'source-does-not-exist', 'STDOUT', '-n'])
+    assert result.exit_code == 1
+    assert message in result.stdout
+
+
+def test_cli_main_target_does_exist():
     message = 'target file exists'
     existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
-    assert cli.main(['extract', existing_file, existing_file, 'DRYRUN']) == 1
-    _, err = capsys.readouterr()
-    assert message in err
+    result = runner.invoke(app, ['extract', existing_file, existing_file, '--dryrun'])
+    assert result.exit_code == 1
+    assert message in result.stdout
 
 
-def test_cli_main_verifier_passes(capsys):
+def test_cli_main_verifier_passes():
     message = r'dryrun requested'
     existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
-    assert cli.main(['extract', existing_file, 'target-does-not-exist', 'DRYRUN']) == 0
-    _, err = capsys.readouterr()
-    assert message in err
+    result = runner.invoke(app, ['extract', existing_file, '-o', 'target-does-not-exist', '-n'])
+    assert result.exit_code == 0
+    assert message in result.stdout
 
 
-def test_cli_main_too_few_columns(capsys):
-    message = 'received wrong number of arguments'
-    assert cli.main(['extract', str(BASIC_FIXTURES_PATH / 'single-too-short-data-line.csv')]) == 2
-    _, err = capsys.readouterr()
-    assert message in err
+def test_cli_main_too_few_columns():
+    message = 'c1,t1,2021-11-27 12:34:56'
+    # error = 'not enough values to unpack (expected 4, got 3)'
+    result = runner.invoke(app, ['extract', str(BASIC_FIXTURES_PATH / 'single-too-short-data-line.csv')])
+    assert result.exit_code == 1
+    assert message in result.stdout
