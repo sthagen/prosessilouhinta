@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022.11.13
+
+* Added some PERT function implementations and tests
+* Raised the bar to python versions greater or equal to 3.9
 ## 2022.09.24
 
 * Added cleansing of site folder to clean target
