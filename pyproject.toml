@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "prosessilouhinta"
-version = "2022.9.24"
+version = "2022.11.13"
 description = "Process mining (Finnish prosessilouhinta) from eventlogs."
 readme = "README.md"
 authors = [{ name = "Stefan Hagen", email = "stefan@hagen.link" }]
