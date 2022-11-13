@@ -3,8 +3,6 @@
 ## 2022.11.13
 
 * Added Critical Path Analysis (CPA) implementation with tests
-* Added Earned Value Analysis (EVA) implementation with tests
-* Added Program Evaluation and Review Technique (PERT) implementation with tests
 * Raised the bar to python versions greater or equal to 3.9
 ## 2022.09.24
 
