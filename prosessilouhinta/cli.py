@@ -70,6 +70,30 @@ def extract(
     return sys.exit(pm.main(action))
 
 
+@app.command('cpa')
+def cpa_dia(
+    source: str = typer.Argument(pm.STDIN),
+    inp: str = typer.Option(
+        '',
+        '-i',
+        '--input',
+        help='Path to input eventlog file (default is reading from standard in)',
+        metavar='<sourcepath>',
+    ),
+) -> int:
+    """
+    Apply Critical Path Analysis (CPA) on input and produce activity-on-nodes diagram for critical path.
+    """
+    command = 'cpa'
+    incoming = inp if inp else (source if source != pm.STDIN else '')
+    if not incoming:
+        print('No file path given to load the activities and dependencies from')
+        return sys.exit(2)
+
+    action = [command, incoming]
+    return sys.exit(pm.cpa_dia(action))
+
+
 @app.command('version')
 def app_version() -> None:
     """
