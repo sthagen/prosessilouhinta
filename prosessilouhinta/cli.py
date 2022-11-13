@@ -1,6 +1,5 @@
 """Commandline API gateway for prosessilouhnita."""
 import sys
-from typing import Any, List, Union
 
 import typer
 
@@ -74,14 +73,6 @@ def extract(
 @app.command('version')
 def app_version() -> None:
     """
-    Display the afasi version and exit
+    Display the prosessilouhinta  version and exit
     """
     callback(True)
-
-
-# pylint: disable=expression-not-assigned
-# @app.command()
-def main(argv: Union[List[str], None] = None) -> Union[int, Any]:
-    """Delegate processing to functional module."""
-    argv = sys.argv[1:] if argv is None else argv
-    return pm.main(argv)
