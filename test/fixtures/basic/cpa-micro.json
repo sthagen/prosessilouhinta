@@ -1,0 +1,33 @@
+{
+  "name": "micro",
+  "description": "test fixture for a microscopic network of acitivites.",
+  "nodes": {
+    "A": {
+      "duration": 3
+    },
+    "B": {
+      "duration": 3,
+      "lag": 0
+    },
+    "C": {
+      "duration": 4,
+      "lag": 0
+    },
+    "D": {
+      "duration": 6,
+      "lag": 0
+    },
+    "E": {
+      "duration": 5,
+      "lag": 0
+    }
+  },
+  "edges": [
+    ["A", "B"],
+    ["B", "E"],
+    ["A", "C"],
+    ["C", "E"],
+    ["A", "D"],
+    ["D", "E"]
+  ]
+}
