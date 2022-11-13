@@ -2,8 +2,8 @@
     {
         "key": "typer",
         "package_name": "typer",
-        "installed_version": "0.6.1",
-        "required_version": "0.6.1",
+        "installed_version": "0.7.0",
+        "required_version": "0.7.0",
         "dependencies": [
             {
                 "key": "click",
