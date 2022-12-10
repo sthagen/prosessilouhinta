@@ -3,6 +3,8 @@ site_description: Process mining (Finnish prosessilouhinta) from eventlogs.
 
 theme:
   name: 'material'
+  logo: assets/logo.png
+  favicon: images/favicon.ico
   features:
     - navigation.expand
     - toc.integrate
