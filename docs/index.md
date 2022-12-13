@@ -1,4 +1,4 @@
-# prosessilouhinta
+# Prosessilouhinta
 
 Process mining (Finnish prosessilouhinta) from eventlogs.
 
@@ -6,6 +6,8 @@ Given a CSV file containing an eventlog with case IDs, acitivities/tasks, user I
 and timestamps some evaluations are performed that may assist in process mining.
 
 [License: MIT](https://git.sr.ht/~sthagen/prosessilouhinta/tree/default/item/LICENSE)
+
+Third party dependencies are documented in the folder [third-party](third-party/README.md).
 
 [![version](https://img.shields.io/pypi/v/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
 [![downloads](https://pepy.tech/badge/prosessilouhinta/month)](https://pepy.tech/project/prosessilouhinta)
