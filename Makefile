@@ -54,7 +54,7 @@ sbom:
 
 .PHONY: version
 version:
-	@cog -I. -P -c -r --check --markers="[[fill ]]] [[[end]]]" -p "from gen_version import *" pyproject.toml $(package)/__init__.py
+	@cog -I. -P -c -r --check --markers="[[fill ]]] [[[end]]]" -p "from gen_version import *" $(package)/__init__.py
 
 .PHONY: secure
 secure:
