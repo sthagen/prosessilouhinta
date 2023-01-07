@@ -40,9 +40,6 @@ prosessilouhinta = "prosessilouhinta.cli:main"
 include = ["prosessilouhinta"]
 exclude = ["test*"]
 
-[bdist_wheel]
-universal = true
-
 [tool.black]
 line-length = 120
 skip-string-normalization = true
