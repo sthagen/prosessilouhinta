@@ -1,0 +1,42 @@
+---
+SPDXID: "SPDXRef-DOCUMENT"
+spdxVersion: "SPDX-2.3"
+creationInfo:
+  comment: "Converted from CycloneDX spec version 1.4"
+  created: "2023-06-24T20:40:20Z"
+  creators:
+  - "Tool: CycloneDX:cyclonedx-bom-3.11.0"
+  - "Tool: CycloneDX:cyclonedx-python-lib-3.1.1"
+  - "Tool: CycloneToSpdx-0.1.4"
+  licenseListVersion: "3.21"
+name: "SBOM-for-typer"
+dataLicense: "CC0-1.0"
+annotations:
+- annotationDate: "2023-06-24T20:40:22Z"
+  annotationType: "OTHER"
+  annotator: "Tool: CycloneToSpdx"
+  comment: "MISSING_CDX_PROPERTY:extensions={}"
+documentNamespace: "https://cyclonedx/314637d4-6345-4376-a6d1-25bd774579fb_1"
+packages:
+- SPDXID: "SPDXRef-686a1ce5-3a42-4a3e-8eb2-865557f472f7"
+  annotations:
+  - annotationDate: "2023-06-24T20:40:22Z"
+    annotationType: "OTHER"
+    annotator: "Tool: CycloneToSpdx"
+    comment: "MISSING_CDX_PROPERTY:componentType=\"LIBRARY\""
+  copyrightText: "NOASSERTION"
+  downloadLocation: "NOASSERTION"
+  externalRefs:
+  - referenceCategory: "PACKAGE-MANAGER"
+    referenceLocator: "pkg:pypi/typer@0.7.0"
+    referenceType: "purl"
+  filesAnalyzed: false
+  licenseConcluded: "NOASSERTION"
+  licenseDeclared: "NOASSERTION"
+  name: "typer"
+  primaryPackagePurpose: "LIBRARY"
+  versionInfo: "0.7.0"
+relationships:
+- spdxElementId: "SPDXRef-DOCUMENT"
+  relationshipType: "DESCRIBES"
+  relatedSpdxElement: "SPDXRef-686a1ce5-3a42-4a3e-8eb2-865557f472f7"
