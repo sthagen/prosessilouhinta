@@ -1,13 +1,11 @@
-# Changelog
+# Changes
 
-## 2022.11.13
-
-* Added Critical Path Analysis (CPA) implementation with tests
+2022.11.13
+:    * Added Critical Path Analysis (CPA) implementation with tests
 * Raised the bar to python versions greater or equal to 3.9
 
-## 2022.09.24
-
-* Added cleansing of site folder to clean target
+2022.09.24
+:    * Added cleansing of site folder to clean target
 * Added developer dep for docstring style check from cartesian strategy source
 * Added editor artifacts to git ignores
 * Added experimental pytest plugins to test deps from cartesian strategy source
@@ -29,6 +27,7 @@
 * Removed final traces of github from the docs
 * Updated editor config
 
-## 2021.11.27
+## 2021
 
-* Initial release to pypi
+2021.11.27
+:    * Initial release to pypi
