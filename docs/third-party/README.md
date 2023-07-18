@@ -1,8 +1,8 @@
 # Third Party Dependencies
 
 <!--[[[fill sbom_sha256()]]]-->
-The [SBOM in CycloneDX v1.4 JSON format](https://git.sr.ht/~sthagen/prosessilouhinta/blob/default/sbom/cdx.json) with SHA256 checksum ([243a24ed ...](https://git.sr.ht/~sthagen/prosessilouhinta/blob/default/sbom/cdx.json.sha256 "sha256:243a24ed75b2f56ee646e5e4bd7e07141a2701becdff804aa1de5bc54dda4091")).
-<!--[[[end]]] (checksum: 834725c2b0d45f1011501e9b80ed19cc)-->
+The [SBOM in CycloneDX v1.4 JSON format](https://git.sr.ht/~sthagen/prosessilouhinta/blob/default/sbom/cdx.json) with SHA256 checksum ([37edb514 ...](https://git.sr.ht/~sthagen/prosessilouhinta/blob/default/sbom/cdx.json.sha256 "sha256:37edb514fd19ce404ae224dea7960579c5f94d1736350a6b4efa19145730c557")).
+<!--[[[end]]] (checksum: 6a5e435afee1c1ab7dd2bde3d3723159)-->
 ## Licenses 
 
 JSON files with complete license info of: [direct dependencies](direct-dependency-licenses.json) | [all dependencies](all-dependency-licenses.json)
@@ -12,8 +12,8 @@ JSON files with complete license info of: [direct dependencies](direct-dependenc
 <!--[[[fill direct_dependencies_table()]]]-->
 | Name                                       | Version                                        | License     | Author            | Description (from packaging data)                                  |
 |:-------------------------------------------|:-----------------------------------------------|:------------|:------------------|:-------------------------------------------------------------------|
-| [typer](https://github.com/tiangolo/typer) | [0.7.0](https://pypi.org/project/typer/0.7.0/) | MIT License | Sebastián Ramírez | Typer, build great CLIs. Easy to code. Based on Python type hints. |
-<!--[[[end]]] (checksum: 3dd7af6d734cb53754e2854ec89b9dc7)-->
+| [typer](https://github.com/tiangolo/typer) | [0.9.0](https://pypi.org/project/typer/0.9.0/) | MIT License | Sebastián Ramírez | Typer, build great CLIs. Easy to code. Based on Python type hints. |
+<!--[[[end]]] (checksum: 80e791c1fdef7665f4104495541de7b1)-->
 
 ### Indirect Dependencies
 
@@ -37,7 +37,8 @@ Base graphviz file in dot format: [Trees of the direct dependencies](package-dep
 
 <!--[[[fill dependency_tree_console_text()]]]-->
 ````console
-typer==0.7.0
-└── click [required: >=7.1.1,<9.0.0, installed: 8.1.3]
+typer==0.9.0
+├── click [required: >=7.1.1,<9.0.0, installed: 8.1.3]
+└── typing-extensions [required: >=3.7.4.3, installed: 4.4.0]
 ````
-<!--[[[end]]] (checksum: c1e2e27f168bfef6f0a9e6d851fffa27)-->
+<!--[[[end]]] (checksum: ca215eb24926e0be2bc9d69e4e1d0d8b)-->
