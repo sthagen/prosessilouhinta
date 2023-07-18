@@ -1,0 +1,14 @@
+name: prosessilouhinta
+description: Process mining (Finnish prosessilouhinta) from eventlogs.
+license_spdx: MIT
+version: 2022.11.13
+spec_version: 1.0
+home_url: https://git.sr.ht/~sthagen/prosessilouhinta
+news_url: https://libraries.io/pypi/prosessilouhinta/versions.atom
+date: 2022-11-13
+about_resource: ./
+libraries_io_url: https://libraries.io/pypi/prosessilouhinta?number=2022.11.13
+vcs_tool: git
+vcs_repository: https://git.sr.ht/~sthagen/prosessilouhinta
+vcs_branch: default
+
