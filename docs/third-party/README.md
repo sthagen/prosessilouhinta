@@ -1,8 +1,8 @@
 # Third Party Dependencies
 
 <!--[[[fill sbom_sha256()]]]-->
-The [SBOM in CycloneDX v1.4 JSON format](https://git.sr.ht/~sthagen/prosessilouhinta/blob/default/sbom/cdx.json) with SHA256 checksum ([924cef17 ...](https://git.sr.ht/~sthagen/prosessilouhinta/blob/default/sbom/cdx.json.sha256 "sha256:924cef17dd928d142ab2a2141bfa86fc144d07c434a48c1d8fd4acf7eb8ebb9b")).
-<!--[[[end]]] (checksum: b4a406bd11e6c0ab03480d8e98171f00)-->
+The [SBOM in CycloneDX v1.4 JSON format](https://git.sr.ht/~sthagen/prosessilouhinta/blob/default/sbom/cdx.json) with SHA256 checksum ([37c0a3c5 ...](https://git.sr.ht/~sthagen/prosessilouhinta/blob/default/sbom/cdx.json.sha256 "sha256:37c0a3c5980d444c702d311b86443354d8efb0dde56a79bfa23fb413fef6e42f")).
+<!--[[[end]]] (checksum: ba18960001edc22f464ca267c832390b)-->
 ## Licenses 
 
 JSON files with complete license info of: [direct dependencies](direct-dependency-licenses.json) | [all dependencies](all-dependency-licenses.json)
@@ -20,9 +20,9 @@ JSON files with complete license info of: [direct dependencies](direct-dependenc
 <!--[[[fill indirect_dependencies_table()]]]-->
 | Name                                                             | Version                                                    | License                            | Author                                                                                | Description (from packaging data)                      |
 |:-----------------------------------------------------------------|:-----------------------------------------------------------|:-----------------------------------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------|
-| [click](https://palletsprojects.com/p/click/)                    | [8.1.3](https://pypi.org/project/click/8.1.3/)             | BSD License                        | Armin Ronacher                                                                        | Composable command line interface toolkit              |
-| [typing_extensions](https://github.com/python/typing_extensions) | [4.4.0](https://pypi.org/project/typing_extensions/4.4.0/) | Python Software Foundation License | "Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee" <levkivskyi@gmail.com> | Backported and Experimental Type Hints for Python 3.7+ |
-<!--[[[end]]] (checksum: ce9eb9e0a6f0193879b25757445a6732)-->
+| [click](https://palletsprojects.com/p/click/)                    | [8.1.5](https://pypi.org/project/click/8.1.5/)             | BSD License                        | UNKNOWN                                                                               | Composable command line interface toolkit              |
+| [typing_extensions](https://github.com/python/typing_extensions) | [4.7.1](https://pypi.org/project/typing_extensions/4.7.1/) | Python Software Foundation License | "Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee" <levkivskyi@gmail.com> | Backported and Experimental Type Hints for Python 3.7+ |
+<!--[[[end]]] (checksum: e4e0711b27c84b7d53d7caceeba18d27)-->
 
 ## Dependency Tree(s)
 
@@ -39,7 +39,7 @@ Base graphviz file in dot format: [Trees of the direct dependencies](package-dep
 <!--[[[fill dependency_tree_console_text()]]]-->
 ````console
 typer==0.9.0
-├── click [required: >=7.1.1,<9.0.0, installed: 8.1.3]
-└── typing-extensions [required: >=3.7.4.3, installed: 4.4.0]
+├── click [required: >=7.1.1,<9.0.0, installed: 8.1.5]
+└── typing-extensions [required: >=3.7.4.3, installed: 4.7.1]
 ````
-<!--[[[end]]] (checksum: ca215eb24926e0be2bc9d69e4e1d0d8b)-->
+<!--[[[end]]] (checksum: 6d93fba045b04b1a3b7b5a23f4a3c409)-->
