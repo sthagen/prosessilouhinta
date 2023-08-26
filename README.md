@@ -10,7 +10,7 @@ and timestamps some evaluations are performed that may assist in process mining.
 Third party dependencies are documented in the folder [third-party](docs/third-party/README.md).
 
 [![version](https://img.shields.io/pypi/v/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
-[![downloads](https://pepy.tech/badge/prosessilouhinta/month)](https://pepy.tech/project/prosessilouhinta)
+[![downloads](https://static.pepy.tech/badge/prosessilouhinta/month)](https://pepy.tech/project/prosessilouhinta)
 [![wheel](https://img.shields.io/pypi/wheel/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
 [![supported-versions](https://img.shields.io/pypi/pyversions/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
 [![supported-implementations](https://img.shields.io/pypi/implementation/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
