@@ -5,7 +5,9 @@ Process mining (Finnish prosessilouhinta) from eventlogs.
 Given a CSV file containing an eventlog with case IDs, acitivities/tasks, user IDs, 
 and timestamps some evaluations are performed that may assist in process mining.
 
-[License: MIT](https://git.sr.ht/~sthagen/prosessilouhinta/tree/default/item/LICENSE)
+[License: MIT](https://git.sr.ht/~sthagen/prosessilouhinta/tree/default/item/LICENSE) |
+[Country of origin: Switzerland](https://git.sr.ht/~sthagen/prosessilouhinta/tree/default/item/COUNTRY-OF-ORIGIN) |
+[Export control classification number(ECCN): EAR99](https://git.sr.ht/~sthagen/prosessilouhinta/tree/default/item/EXPORT-CONTROL-CLASSIFICATION-NUMBER)
 
 Third party dependencies are documented in the folder [third-party](third-party/README.md).
 
