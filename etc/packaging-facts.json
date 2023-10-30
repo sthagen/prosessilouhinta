@@ -1,0 +1,237 @@
+{
+  "info": {
+    "author": "",
+    "author_email": "Stefan Hagen <stefan@hagen.link>",
+    "bugtrack_url": null,
+    "classifiers": [
+      "Development Status :: 3 - Alpha",
+      "Intended Audience :: Developers",
+      "License :: OSI Approved :: MIT License",
+      "Programming Language :: Python :: 3.10",
+      "Programming Language :: Python :: 3.11",
+      "Programming Language :: Python :: 3.9"
+    ],
+    "description": "# prosessilouhinta\n\nProcess mining (Finnish prosessilouhinta) from eventlogs.\n\nGiven a CSV file containing an eventlog with case IDs, acitivities/tasks, user IDs, \nand timestamps some evaluations are performed that may assist in process mining.\n\n[License: MIT](https://git.sr.ht/~sthagen/prosessilouhinta/tree/default/item/LICENSE)\n\n[![version](https://img.shields.io/pypi/v/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)\n[![downloads](https://pepy.tech/badge/prosessilouhinta/month)](https://pepy.tech/project/prosessilouhinta)\n[![wheel](https://img.shields.io/pypi/wheel/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)\n[![supported-versions](https://img.shields.io/pypi/pyversions/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)\n[![supported-implementations](https://img.shields.io/pypi/implementation/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)\n\n## Documentation\n\nUser and developer [documentation of prosessilouhinta](https://codes.dilettant.life/docs/prosessilouhinta).\n\n## Bug Tracker\n\nFeature requests and bug reports are best entered in the [todos of prosessilouhinta](https://todo.sr.ht/~sthagen/prosessilouhinta).\n\n## Primary Source repository\n\nThe primary source of `prosessilouhinta` lives somewhere on a mountain in Central Switzerland.\nBut, we use decentralized version control (git), so any clone can become the source to everyone's benefit, no central only code.\nAnyway, the preferred public clones of `prosessilouhinta` are:\n\n* [on codeberg](https://codeberg.org/sthagen/prosessilouhinta) - a democratic community-driven, non-profit software development platform operated by Codeberg e.V.\n* [at sourcehut](https://git.sr.ht/~sthagen/prosessilouhinta) - a collection of tools useful for software development.\n\n## Status\n\nExperimental.\n\n**Note**: The default branch is `default`.\n",
+    "description_content_type": "text/markdown",
+    "docs_url": null,
+    "download_url": "",
+    "downloads": {
+      "last_day": -1,
+      "last_month": -1,
+      "last_week": -1
+    },
+    "home_page": "",
+    "keywords": "developer-tools,process-mining",
+    "license": "",
+    "maintainer": "",
+    "maintainer_email": "Stefan Hagen <stefan@hagen.link>",
+    "name": "prosessilouhinta",
+    "package_url": "https://pypi.org/project/prosessilouhinta/",
+    "platform": null,
+    "project_url": "https://pypi.org/project/prosessilouhinta/",
+    "project_urls": {
+      "Bug-Tracker": "https://todo.sr.ht/~sthagen/prosessilouhinta",
+      "Documentation": "https://codes.dilettant.life/docs/prosessilouhinta",
+      "Homepage": "https://git.sr.ht/~sthagen/prosessilouhinta",
+      "Source-Code": "https://git.sr.ht/~sthagen/prosessilouhinta",
+      "Test-Coverage": "https://codes.dilettant.life/coverage/prosessilouhinta"
+    },
+    "release_url": "https://pypi.org/project/prosessilouhinta/2022.11.13/",
+    "requires_dist": [
+      "typer (>=0.7.0)",
+      "black ; extra == 'dev'",
+      "coverage ; extra == 'dev'",
+      "flake8 ; extra == 'dev'",
+      "hypothesis ; extra == 'dev'",
+      "mypy ; extra == 'dev'",
+      "pytest ; extra == 'dev'",
+      "pytest-cov ; extra == 'dev'",
+      "pytest-flake8 ; extra == 'dev'"
+    ],
+    "requires_python": ">=3.9",
+    "summary": "Process mining (Finnish prosessilouhinta) from eventlogs.",
+    "version": "2022.11.13",
+    "yanked": false,
+    "yanked_reason": null
+  },
+  "last_serial": 15752485,
+  "releases": {
+    "2021.11.27": [
+      {
+        "comment_text": "",
+        "digests": {
+          "blake2b_256": "aab6edf978dd442c87313a435843ff331c6960e0b22b0ee0888d7acd1dd38d71",
+          "md5": "522820ab6722410672c309d6d62a7d82",
+          "sha256": "de32c111f97caa0372c5013d0f5ed1dbca61956acfd101130ec6dc2766b5de6e"
+        },
+        "downloads": -1,
+        "filename": "prosessilouhinta-2021.11.27-py2.py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "522820ab6722410672c309d6d62a7d82",
+        "packagetype": "bdist_wheel",
+        "python_version": "py2.py3",
+        "requires_python": ">=3.8.3",
+        "size": 10082,
+        "upload_time": "2021-11-28T17:21:00",
+        "upload_time_iso_8601": "2021-11-28T17:21:00.678975Z",
+        "url": "https://files.pythonhosted.org/packages/aa/b6/edf978dd442c87313a435843ff331c6960e0b22b0ee0888d7acd1dd38d71/prosessilouhinta-2021.11.27-py2.py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": "",
+        "digests": {
+          "blake2b_256": "b58e7a4e29c0dea917c5b626af8d4db0c1ca353a9bd70467d28b094801d8be0b",
+          "md5": "884c40b98e6c6ad9d8521f9af5376d41",
+          "sha256": "ca591059d0f9a88b76c176fd20cc5600f14db26e7122042fb535a91157a17bac"
+        },
+        "downloads": -1,
+        "filename": "prosessilouhinta-2021.11.27.tar.gz",
+        "has_sig": false,
+        "md5_digest": "884c40b98e6c6ad9d8521f9af5376d41",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.8.3",
+        "size": 10648,
+        "upload_time": "2021-11-28T17:21:02",
+        "upload_time_iso_8601": "2021-11-28T17:21:02.047501Z",
+        "url": "https://files.pythonhosted.org/packages/b5/8e/7a4e29c0dea917c5b626af8d4db0c1ca353a9bd70467d28b094801d8be0b/prosessilouhinta-2021.11.27.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "2022.11.13": [
+      {
+        "comment_text": "",
+        "digests": {
+          "blake2b_256": "dee43a933ae37a0271a8051bd2759897dc9604ca57d57e58d41773bc063586df",
+          "md5": "e6ab77e4e83b11dd8625830bdd4a2585",
+          "sha256": "e6464f6d8735af12dbe6dbf30872771370230caaa7baf96af54276581a92c663"
+        },
+        "downloads": -1,
+        "filename": "prosessilouhinta-2022.11.13-py2.py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "e6ab77e4e83b11dd8625830bdd4a2585",
+        "packagetype": "bdist_wheel",
+        "python_version": "py2.py3",
+        "requires_python": ">=3.9",
+        "size": 12416,
+        "upload_time": "2022-11-13T18:11:17",
+        "upload_time_iso_8601": "2022-11-13T18:11:17.999194Z",
+        "url": "https://files.pythonhosted.org/packages/de/e4/3a933ae37a0271a8051bd2759897dc9604ca57d57e58d41773bc063586df/prosessilouhinta-2022.11.13-py2.py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": "",
+        "digests": {
+          "blake2b_256": "16d0215ebbb1060517e967f44cd3df43496dc21ab35cdcfe0666c1423c6619c8",
+          "md5": "757c9f9a746849567de0e5ee0ae9c58a",
+          "sha256": "5baa85b8f8e298aa52c5f03ccaf2a52f9006d3cbb2fc6182d7f5502e7f9cf8c0"
+        },
+        "downloads": -1,
+        "filename": "prosessilouhinta-2022.11.13.tar.gz",
+        "has_sig": false,
+        "md5_digest": "757c9f9a746849567de0e5ee0ae9c58a",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.9",
+        "size": 35470,
+        "upload_time": "2022-11-13T18:11:19",
+        "upload_time_iso_8601": "2022-11-13T18:11:19.996246Z",
+        "url": "https://files.pythonhosted.org/packages/16/d0/215ebbb1060517e967f44cd3df43496dc21ab35cdcfe0666c1423c6619c8/prosessilouhinta-2022.11.13.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "2022.9.24": [
+      {
+        "comment_text": "",
+        "digests": {
+          "blake2b_256": "d404ecf05c3c2d8e964accc587f65ff874d354c5c9493ab29f030f086eefcdc6",
+          "md5": "77c342fa0f07816d8032b24f4534177b",
+          "sha256": "428b378e46e417a4bcb7701823fadea65c3d5f29657f6ffa1e1189e4add73096"
+        },
+        "downloads": -1,
+        "filename": "prosessilouhinta-2022.9.24-py2.py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "77c342fa0f07816d8032b24f4534177b",
+        "packagetype": "bdist_wheel",
+        "python_version": "py2.py3",
+        "requires_python": ">=3.8",
+        "size": 7695,
+        "upload_time": "2022-09-24T21:34:17",
+        "upload_time_iso_8601": "2022-09-24T21:34:17.851951Z",
+        "url": "https://files.pythonhosted.org/packages/d4/04/ecf05c3c2d8e964accc587f65ff874d354c5c9493ab29f030f086eefcdc6/prosessilouhinta-2022.9.24-py2.py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": "",
+        "digests": {
+          "blake2b_256": "0b5bd3eebd4e73da1e37298438080e2438b84d07df8a64e80cfbc7adfabff14c",
+          "md5": "6e7bcbb49b32832a5a1eeb075f4b113c",
+          "sha256": "47f213156980dea5fe3f901566a08db73d403001145ba64c86518884d7af0af6"
+        },
+        "downloads": -1,
+        "filename": "prosessilouhinta-2022.9.24.tar.gz",
+        "has_sig": false,
+        "md5_digest": "6e7bcbb49b32832a5a1eeb075f4b113c",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.8",
+        "size": 24719,
+        "upload_time": "2022-09-24T21:34:19",
+        "upload_time_iso_8601": "2022-09-24T21:34:19.716926Z",
+        "url": "https://files.pythonhosted.org/packages/0b/5b/d3eebd4e73da1e37298438080e2438b84d07df8a64e80cfbc7adfabff14c/prosessilouhinta-2022.9.24.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ]
+  },
+  "urls": [
+    {
+      "comment_text": "",
+      "digests": {
+        "blake2b_256": "dee43a933ae37a0271a8051bd2759897dc9604ca57d57e58d41773bc063586df",
+        "md5": "e6ab77e4e83b11dd8625830bdd4a2585",
+        "sha256": "e6464f6d8735af12dbe6dbf30872771370230caaa7baf96af54276581a92c663"
+      },
+      "downloads": -1,
+      "filename": "prosessilouhinta-2022.11.13-py2.py3-none-any.whl",
+      "has_sig": false,
+      "md5_digest": "e6ab77e4e83b11dd8625830bdd4a2585",
+      "packagetype": "bdist_wheel",
+      "python_version": "py2.py3",
+      "requires_python": ">=3.9",
+      "size": 12416,
+      "upload_time": "2022-11-13T18:11:17",
+      "upload_time_iso_8601": "2022-11-13T18:11:17.999194Z",
+      "url": "https://files.pythonhosted.org/packages/de/e4/3a933ae37a0271a8051bd2759897dc9604ca57d57e58d41773bc063586df/prosessilouhinta-2022.11.13-py2.py3-none-any.whl",
+      "yanked": false,
+      "yanked_reason": null
+    },
+    {
+      "comment_text": "",
+      "digests": {
+        "blake2b_256": "16d0215ebbb1060517e967f44cd3df43496dc21ab35cdcfe0666c1423c6619c8",
+        "md5": "757c9f9a746849567de0e5ee0ae9c58a",
+        "sha256": "5baa85b8f8e298aa52c5f03ccaf2a52f9006d3cbb2fc6182d7f5502e7f9cf8c0"
+      },
+      "downloads": -1,
+      "filename": "prosessilouhinta-2022.11.13.tar.gz",
+      "has_sig": false,
+      "md5_digest": "757c9f9a746849567de0e5ee0ae9c58a",
+      "packagetype": "sdist",
+      "python_version": "source",
+      "requires_python": ">=3.9",
+      "size": 35470,
+      "upload_time": "2022-11-13T18:11:19",
+      "upload_time_iso_8601": "2022-11-13T18:11:19.996246Z",
+      "url": "https://files.pythonhosted.org/packages/16/d0/215ebbb1060517e967f44cd3df43496dc21ab35cdcfe0666c1423c6619c8/prosessilouhinta-2022.11.13.tar.gz",
+      "yanked": false,
+      "yanked_reason": null
+    }
+  ],
+  "vulnerabilities": []
+}
