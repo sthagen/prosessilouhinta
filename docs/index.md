@@ -11,9 +11,9 @@ and timestamps some evaluations are performed that may assist in process mining.
 [![Configuration](badges/configuration-sbom.svg)](third-party/index.html)
 
 [![Version](https://img.shields.io/pypi/v/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
-[![Downloads](docs/badges/downloads-per-month.svg)](https://pepy.tech/project/prosessilouhinta)
+[![Downloads](badges/downloads-per-month.svg)](https://pepy.tech/project/prosessilouhinta)
 [![Supported Versions](https://img.shields.io/pypi/pyversions/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
-[![Maintenance Status](docs/badges/commits-per-year.svg)](https://git.sr.ht/~sthagen/prosessilouhinta/log)
+[![Maintenance Status](badges/commits-per-year.svg)](https://git.sr.ht/~sthagen/prosessilouhinta/log)
 
 ## Bug Tracker
 
