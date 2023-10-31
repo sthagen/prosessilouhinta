@@ -12,7 +12,7 @@ and timestamps some evaluations are performed that may assist in process mining.
 
 [![Version](docs/badges/latest-release.svg)](https://pypi.python.org/pypi/prosessilouhinta/)
 [![Downloads](docs/badges/downloads-per-month.svg)](https://pepy.tech/project/prosessilouhinta)
-[![Supported Versions](https://img.shields.io/pypi/pyversions/prosessilouhinta.svg?style=flat)](https://pypi.python.org/pypi/prosessilouhinta/)
+[![Python](docs/badges/python-versions.svg)](https://pypi.python.org/pypi/prosessilouhinta/)
 [![Maintenance Status](docs/badges/commits-per-year.svg)](https://git.sr.ht/~sthagen/prosessilouhinta/log)
 
 ## Documentation
