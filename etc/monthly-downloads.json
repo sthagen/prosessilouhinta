@@ -26,6 +26,11 @@
       "downloads": 2
     },
     {
+      "category": "3.10",
+      "date": "2023-10",
+      "downloads": 1
+    },
+    {
       "category": "3.11",
       "date": "2023-05",
       "downloads": 7
@@ -49,6 +54,11 @@
       "category": "3.11",
       "date": "2023-09",
       "downloads": 3
+    },
+    {
+      "category": "3.11",
+      "date": "2023-10",
+      "downloads": 1
     },
     {
       "category": "3.3",
@@ -86,6 +96,11 @@
       "downloads": 2
     },
     {
+      "category": "3.8",
+      "date": "2023-10",
+      "downloads": 1
+    },
+    {
       "category": "3.9",
       "date": "2023-05",
       "downloads": 18
@@ -111,9 +126,14 @@
       "downloads": 2
     },
     {
+      "category": "3.9",
+      "date": "2023-10",
+      "downloads": 1
+    },
+    {
       "category": "null",
       "date": "2023-05",
-      "downloads": 11
+      "downloads": 10
     },
     {
       "category": "null",
@@ -138,7 +158,7 @@
     {
       "category": "null",
       "date": "2023-10",
-      "downloads": 4
+      "downloads": 10
     }
   ],
   "package": "prosessilouhinta",
