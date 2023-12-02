@@ -1,0 +1,18 @@
+{
+  "prosessilouhinta": {
+    "version": "7.3.2",
+    "timestamp": "2023-12-02T15:31:11.994101",
+    "branch_coverage": true,
+    "show_contexts": true,
+    "covered_lines": 495,
+    "num_statements": 567,
+    "percent_covered": 84.3980343980344,
+    "percent_covered_display": "84.40",
+    "missing_lines": 72,
+    "excluded_lines": 1,
+    "num_branches": 247,
+    "num_partial_branches": 27,
+    "covered_branches": 192,
+    "missing_branches": 55
+  }
+}
