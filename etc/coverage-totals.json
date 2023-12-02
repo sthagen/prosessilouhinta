@@ -1,7 +1,7 @@
 {
   "prosessilouhinta": {
-    "version": "7.3.2",
-    "timestamp": "2023-12-02T15:31:11.994101",
+    "coverage_tool_version": "7.3.2",
+    "timestamp": "2023-12-02 16:28:28 +00:00",
     "branch_coverage": true,
     "show_contexts": true,
     "covered_lines": 495,
@@ -13,6 +13,23 @@
     "num_branches": 247,
     "num_partial_branches": 27,
     "covered_branches": 192,
-    "missing_branches": 55
+    "missing_branches": 55,
+    "node_id": "c79891e5-aabf-3a83-95b9-588edcd8327f",
+    "nfiles": 4,
+    "files": [
+      "prosessilouhinta/__init__.py",
+      "prosessilouhinta/cli.py",
+      "prosessilouhinta/cpa.py",
+      "prosessilouhinta/prosessilouhinta.py"
+    ],
+    "blake3": "065fc1aa34b49c0fa5084a17490bf310e4d7a319431b6efd910eea7f14d70f11",
+    "blake2": "49032a12b45e8bcc8913fab8b93261061c26ad8633f14e51665107708c3009304644aef4c1197797eb9d757fc5fe304c1a1f91280281117d1f527514d04eace6",
+    "sha512": "dc8df8d61b6c7bb982b809b8722993b1c024a93886b67f3ea26fcdc179834225d77468ef4adf538ef6f1eb824ba6991f6a6710beb692dc7609b25bc63d676344",
+    "sha384": "b0d173b7bf1d56cb8b92edc7f27b4e6866bb88491dde2dc86734a5d723eea4ede085fe2942e4c124e64bcf86a7c9110e",
+    "sha256": "3bf14087a908ff5a4707c2e53912480b84c0e9da9f0f991a8b06a19bca51a6e8",
+    "sha1": "d65ff1dd526bba18f9ce5d6f3d7e995847051daf",
+    "md5": "55f5ffbf0bd199474e5e2c91c34dd3fb",
+    "python_version": "3.10.12",
+    "entropy": 4.610859
   }
 }
