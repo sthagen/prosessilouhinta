@@ -28,7 +28,7 @@
     {
       "category": "3.10",
       "date": "2024-01",
-      "downloads": 84
+      "downloads": 88
     },
     {
       "category": "3.11",
@@ -58,12 +58,12 @@
     {
       "category": "3.11",
       "date": "2024-01",
-      "downloads": 84
+      "downloads": 88
     },
     {
       "category": "3.12",
       "date": "2024-01",
-      "downloads": 60
+      "downloads": 64
     },
     {
       "category": "3.3",
@@ -108,7 +108,7 @@
     {
       "category": "3.8",
       "date": "2024-01",
-      "downloads": 84
+      "downloads": 88
     },
     {
       "category": "3.9",
@@ -163,7 +163,7 @@
     {
       "category": "null",
       "date": "2024-01",
-      "downloads": 11
+      "downloads": 14
     }
   ],
   "package": "prosessilouhinta",
