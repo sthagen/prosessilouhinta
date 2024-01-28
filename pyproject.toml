@@ -7,6 +7,7 @@ name = "prosessilouhinta"
 version = "2022.11.13"
 description = "Process mining (Finnish prosessilouhinta) from eventlogs."
 readme = "README.md"
+license = {file = "LICENSE"}
 authors = [{ name = "Stefan Hagen", email = "stefan@hagen.link" }]
 maintainers = [{ name = "Stefan Hagen", email = "stefan@hagen.link" }]
 classifiers = [
