@@ -1,4 +1,5 @@
 """Process mining (Finnish prosessilouhinta) from eventlogs. Version and init interface."""
+
 from typing import List
 
 # [[[fill git_describe()]]]

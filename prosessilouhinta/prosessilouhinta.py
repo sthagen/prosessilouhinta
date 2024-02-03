@@ -1,4 +1,5 @@
 """Process mining (Finnish prosessilouhinta) from eventlogs. API."""
+
 import datetime as dti
 import json
 import os

@@ -1,4 +1,5 @@
 """Commandline API gateway for prosessilouhnita."""
+
 import sys
 
 import typer

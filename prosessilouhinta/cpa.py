@@ -1,4 +1,5 @@
 """Naive Critical Path Analysis (CPA) implementation."""
+
 import json
 import pathlib
 from typing import no_type_check  # Self when 3.11 is lowest bound
