@@ -3,7 +3,7 @@
     {
       "category": "3.10",
       "date": "2024-04",
-      "downloads": 96
+      "downloads": 88
     },
     {
       "category": "3.10",
@@ -33,12 +33,12 @@
     {
       "category": "3.10",
       "date": "2024-10",
-      "downloads": 128
+      "downloads": 136
     },
     {
       "category": "3.11",
       "date": "2024-04",
-      "downloads": 96
+      "downloads": 88
     },
     {
       "category": "3.11",
@@ -68,12 +68,12 @@
     {
       "category": "3.11",
       "date": "2024-10",
-      "downloads": 1725
+      "downloads": 2117
     },
     {
       "category": "3.12",
       "date": "2024-04",
-      "downloads": 96
+      "downloads": 88
     },
     {
       "category": "3.12",
@@ -103,12 +103,12 @@
     {
       "category": "3.12",
       "date": "2024-10",
-      "downloads": 128
+      "downloads": 136
     },
     {
       "category": "3.8",
       "date": "2024-04",
-      "downloads": 96
+      "downloads": 88
     },
     {
       "category": "3.8",
@@ -138,7 +138,7 @@
     {
       "category": "3.8",
       "date": "2024-10",
-      "downloads": 128
+      "downloads": 136
     },
     {
       "category": "3.9",
@@ -158,7 +158,7 @@
     {
       "category": "null",
       "date": "2024-04",
-      "downloads": 25
+      "downloads": 16
     },
     {
       "category": "null",
@@ -188,7 +188,7 @@
     {
       "category": "null",
       "date": "2024-10",
-      "downloads": 84
+      "downloads": 90
     }
   ],
   "package": "prosessilouhinta",
