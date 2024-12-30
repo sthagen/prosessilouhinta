@@ -2,13 +2,8 @@
   "data": [
     {
       "category": "3.10",
-      "date": "2024-06",
-      "downloads": 8
-    },
-    {
-      "category": "3.10",
       "date": "2024-07",
-      "downloads": 248
+      "downloads": 240
     },
     {
       "category": "3.10",
@@ -33,17 +28,12 @@
     {
       "category": "3.10",
       "date": "2024-12",
-      "downloads": 222
-    },
-    {
-      "category": "3.11",
-      "date": "2024-06",
-      "downloads": 8
+      "downloads": 238
     },
     {
       "category": "3.11",
       "date": "2024-07",
-      "downloads": 248
+      "downloads": 240
     },
     {
       "category": "3.11",
@@ -68,17 +58,12 @@
     {
       "category": "3.11",
       "date": "2024-12",
-      "downloads": 238
-    },
-    {
-      "category": "3.12",
-      "date": "2024-06",
-      "downloads": 8
+      "downloads": 254
     },
     {
       "category": "3.12",
       "date": "2024-07",
-      "downloads": 248
+      "downloads": 240
     },
     {
       "category": "3.12",
@@ -103,17 +88,12 @@
     {
       "category": "3.12",
       "date": "2024-12",
-      "downloads": 218
-    },
-    {
-      "category": "3.8",
-      "date": "2024-06",
-      "downloads": 8
+      "downloads": 234
     },
     {
       "category": "3.8",
       "date": "2024-07",
-      "downloads": 248
+      "downloads": 240
     },
     {
       "category": "3.8",
@@ -138,7 +118,7 @@
     {
       "category": "3.8",
       "date": "2024-12",
-      "downloads": 220
+      "downloads": 236
     },
     {
       "category": "3.9",
@@ -152,13 +132,8 @@
     },
     {
       "category": "null",
-      "date": "2024-06",
-      "downloads": 3
-    },
-    {
-      "category": "null",
       "date": "2024-07",
-      "downloads": 15
+      "downloads": 14
     },
     {
       "category": "null",
@@ -183,7 +158,7 @@
     {
       "category": "null",
       "date": "2024-12",
-      "downloads": 58
+      "downloads": 72
     }
   ],
   "package": "prosessilouhinta",
