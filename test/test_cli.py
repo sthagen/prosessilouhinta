@@ -32,21 +32,21 @@ def test_cli_main():
     message = 'source is no file'
     result = runner.invoke(app, ['extract', 'no_file_there'])
     assert result.exit_code == 1
-    assert message in result.stdout
+    assert message in result.stderr
 
 
 def test_cli_main_unknown_command():
     message = 'No such command'
     result = runner.invoke(app, ['unknown', 'STDIN', 'STDOUT', 'DRYRUN'])
     assert result.exit_code == 2
-    assert message in result.stdout
+    assert message in result.stderr
 
 
 def test_cli_main_source_does_not_exist():
     message = 'source is no file'
     result = runner.invoke(app, ['extract', 'source-does-not-exist', 'STDOUT', '-n'])
     assert result.exit_code == 1
-    assert message in result.stdout
+    assert message in result.stderr
 
 
 def test_cli_main_target_does_exist():
@@ -54,7 +54,7 @@ def test_cli_main_target_does_exist():
     existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
     result = runner.invoke(app, ['extract', existing_file, existing_file, '--dryrun'])
     assert result.exit_code == 1
-    assert message in result.stdout
+    assert message in result.stderr
 
 
 def test_cli_main_verifier_passes():
@@ -62,7 +62,7 @@ def test_cli_main_verifier_passes():
     existing_file = str(BASIC_FIXTURES_PATH / 'existing-out-file.whatever')
     result = runner.invoke(app, ['extract', existing_file, '-o', 'target-does-not-exist', '-n'])
     assert result.exit_code == 0
-    assert message in result.stdout
+    assert message in result.stderr
 
 
 def test_cli_main_too_few_columns():
